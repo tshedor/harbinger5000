@@ -1,0 +1,48 @@
+/********* RESPONSIVE **********/
+
+@media (min-width:1200px) {
+
+}
+@media (max-width: 1199px) and (min-width: 768px) {
+
+}
+@media (max-width:959px) and (min-width:768px){
+	.wp-caption-text {
+		top:20%;
+	}
+}
+@media (max-width:767px){
+	.wp-caption-text {
+		position:relative;
+		width:100%;
+		left:auto;
+		top:auto;
+		text-align:center;
+		padding:20px;
+		border:0;
+	}
+	.logo {
+		width:80%;
+		margin:0 auto;
+	}
+	.bracket {
+		height:100%;
+		left:-1.5em;
+		img {
+			height:100%;
+		}
+		&.bracket-right {
+			left:auto;
+			right:-1.5em;
+		}
+	}
+	h2.content-head {
+		font-size:3em;
+	}
+	.portfolio-nav li {
+		margin:10px 30px
+	}
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+
+}

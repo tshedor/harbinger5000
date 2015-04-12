@@ -1,0 +1,20 @@
+/** PRISM LITE
+===================================*/
+
+code .token {
+	&.comment, &.block-comment, &.prolog, &.doctype, &.cdata, &.punctuation {
+		color:$prism-comment;
+	}
+	&.property, &.tag, &.boolean, &.number, &.function-name, &.constant, &.symbol {
+		color: $prism-property;
+	}
+	&.selector, &.attr-name, &.string, &.function, &.builtin {
+		color: $prism-selector;
+	}
+	&.operator, &.entity, &.url, &.variable {
+		color: $prism-operator;
+	}
+	&.atrule, &.attr-value, &.keyword, &.class-name {
+		color: $prism-attr-value;
+	}
+}

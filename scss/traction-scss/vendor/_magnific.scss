@@ -1,0 +1,110 @@
+/*! Magnific Popup - v0.9.9 - 2013-12-27
+* http://dimsemenov.com/plugins/magnific-popup/
+* Copyright (c) 2013 Dmitry Semenov; */
+
+.white-popup-block {
+	background: #f9f9f9;
+	padding: 8px 30px;
+	text-align: left;
+	max-width: 650px;
+	margin: 0 auto;
+	position: relative;
+	@include border-radius(6px);
+	overflow-y:scroll;
+	//max-height:85%;
+}
+.mfp-close-btn-in {
+	button.mfp-close, button.mfp-arrow {
+		display:block!important;
+	}
+}
+
+.mfp-zoom-in {
+	.mfp-figure, .mfp-content {
+		@include opacity(0);
+		@include transform(scale(0.8));
+		@include transition(all 0.4s ease-in-out);
+	}
+	//Animate In
+	&.mfp-ready {
+		.mfp-with-anim {
+			@include opacity(1);
+			@include transform(scale(1));
+		}
+		&.mfp-bg {
+			@include opacity(0.8);
+		}
+		.mfp-figure, .mfp-content {
+			@include opacity(1);
+			@include transform(scale(1));
+		}
+	}
+	&.mfp-bg {
+		@include opacity(0);
+		@include transition(all 0.4s ease-out);
+	}
+	&.mfp-removing {
+		.mfp-figure, .mfp-content {
+			@include transform(scale(0.8));
+			@include opacity(0);
+		}
+		&.mfp-bg {
+			//background-color:green;
+			@include opacity(0);
+		}
+	}
+}
+.mfp-removing {
+	.mfp-arrow {
+		@include opacity(0);
+	}
+}
+
+.mfp-img {
+	background:white;
+}
+
+button.mfp-arrow {
+	&:hover {
+		@include box-shadow(none);
+	}
+}
+.mfp-zoom-out-cur,.mfp-zoom-out-cur .mfp-image-holder .mfp-close, .mfp-zoom {
+	cursor:auto;
+}
+.mfp-arrow {
+	&:hover {
+		background:none;
+	}
+}
+.mfp-arrow-left:before, .mfp-arrow-left .mfp-b{
+	border-right:none;
+}
+.mfp-arrow-right:before, .mfp-arrow-right .mfp-b {
+	border-left:none;
+}
+img.mfp-img {
+	padding:0;
+	@include border-radius(2px);
+}
+.mfp-close {
+	display:none!important;
+}
+.mfp-bottom-bar {
+	margin-top:8px
+}
+.mfp-content {
+	table {
+		width:100%;
+		background:inherit;
+		border:0;
+		margin:0;
+	}
+	ul {
+		font-size:1em;
+		line-height:1.7;
+		margin-bottom:2em;
+		margin:-0.5em 0 2em 2em;
+		list-style:disc;
+	}
+}

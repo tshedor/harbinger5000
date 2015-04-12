@@ -1,0 +1,70 @@
+@font-face {
+	font-family: 'CGSocialRegular';
+	src:url('fonts/CGSocialRegular.eot');
+	src:url('fonts/CGSocialRegular.eot?#iefix') format('embedded-opentype'),
+		url('fonts/CGSocialRegular.ttf') format('truetype'),
+		url('fonts/CGSocialRegular.woff') format('woff'),
+		url('fonts/CGSocialRegular.svg#CGSocialRegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class*="social-ico-"] {
+	font-family: 'CGSocialRegular';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.social-ico-google-plus:before {
+	content: "\e600";
+}
+.social-ico-facebook:before {
+	content: "\e601";
+}
+.social-ico-twitter:before {
+	content: "\e602";
+}
+.social-ico-vimeo:before {
+	content: "\e603";
+}
+.social-ico-github:before {
+	content: "\e604";
+}
+.social-ico-pinterest:before {
+	content: "\e606";
+}
+.social-ico-stumbleupon:before {
+	content: "\e608";
+}
+.social-ico-foursquare:before {
+	content: "\e609";
+}
+.social-ico-dribbble:before {
+	content: "\e60b";
+}
+.social-ico-flickr:before {
+	content: "\e60c";
+}
+.social-ico-feed:before {
+	content: "\e60d";
+}
+.social-ico-youtube:before {
+	content: "\e60e";
+}
+.social-ico-mail:before {
+	content: "\e605";
+}
+.social-ico-linkedin:before {
+	content: "\e60f";
+}
+.social-ico-instagram:before {
+	content: "\e610";
+}

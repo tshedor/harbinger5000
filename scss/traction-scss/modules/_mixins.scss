@@ -1,0 +1,329 @@
+$em-base: 16px !default;
+$size-value: 15px;
+$scheme: 'light' !default;
+
+$sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$serif: Georgia, serif;
+$script:Brush Script MT, Trebuchet MS, 'Helvetica Neue', Helvetica, Arial, script;
+$monospace:'Bitstream Vera Sans Mono', Consolas, Monaco, Menlo, 'Andale Mono', monospace;
+
+
+//Shortcut for text color of hover action
+@mixin hover($color:inherit) {
+	&:hover{
+		color:$color;
+	}
+}
+
+//Remove all list properties
+@mixin no-list {
+	margin-left:0px;
+	padding-left:0px;
+	list-style:none;
+}
+
+
+//Folded shadow underneath object
+@mixin lifted-shadow($direction:both,$deg:5deg) {
+	//@include box-shadow(0 1px 4px rgba(0, 0, 0, 0.3));
+	position:relative;
+	&:before, &:after {
+		content:'';
+		z-index:-2;
+		position:absolute;
+		bottom:12px;
+		left:5px;
+		width:40%;
+		height:20%;
+		@include box-shadow(0px 17px 8px #979797);
+		@include transform(rotate(- $deg));
+	}
+	@if($direction == 'both') {
+		&:after {
+			right:10px;
+			left:auto;
+			@include transform(rotate($deg));
+			visibility:visible!important;
+			height:20%!important;
+		}
+	}
+	@if($direction == 'left') {
+		&:after {
+			@include box-shadow(none);
+			visibility:hidden;
+		}
+	}
+	@if($direction == 'right') {
+		&:before {
+			@include box-shadow(none);
+			visibility:visible;
+		}
+	}
+}
+
+//Add a bevel to text
+@mixin bevel($col: #4d4d4d) {
+	@include text-shadow(0px 1px 0px $col);
+}
+
+//Add an emboss effect to text
+@mixin emboss {
+	@include text-shadow(-1px -1px 1px #fff, 1px 1px 1px #000);
+}
+
+@mixin side-radius($side, $radius) {
+	@if $side == left {
+		@include border-radius($radius 0 0 $radius);
+	}
+	@else if $side == right {
+		@include border-radius(0 $radius $radius 0);
+	}
+	@else if $side == top {
+		@include border-radius($radius $radius 0 0);
+	}
+	@else if $side == bottom {
+		@include border-radius(0 0 $radius $radius);
+	}
+}//Make a triangle (taken from Bourbon)
+@mixin better-triangle($direction:top,$color:$domColor,$size:30px){
+	position: relative;
+	background: $color;
+	&:after {
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		border-color: rgba(250, 250, 250, 0);
+		border-width: $size;
+		@if ($direction == top){
+			bottom: 100%;
+			left: 50%;
+			margin-left: $size;
+			border-bottom-color: $color;
+		}
+		@if ($direction == bottom){
+			top: 100%;
+			left: 50%;
+			margin-left: -$size;
+			border-top-color: $color;
+		}
+		@if ($direction == left){
+			top: 100%;
+			left: 50%;
+			margin-left: -$size;
+			border-left-color: $color;
+		}
+		@if ($direction == right){
+			top: 100%;
+			left: 50%;
+			margin-left: -$size;
+			border-left-color: $color;
+		}
+	}
+}
+
+//Clearfix
+@mixin clearfix() {
+  *zoom:1;
+  &:before, &:after { content: " "; display: table; }
+  &:after { clear: both; }
+}
+
+//Tab-size mixin
+@mixin tab-size($value:auto){
+	-moz-tab-size:$value;
+	-o-tab-size:$value;
+	tab-size:$value;
+}
+
+//Z-index function: comma-separated list and item taken
+//http://www.smashingmagazine.com/2014/06/12/sassy-z-index-management-for-complex-layouts/
+@function z($list, $element) {
+
+	$z-index: index($list, $element);
+
+	@if $z-index {
+		@return $z-index;
+	}
+
+	@warn 'There is no item "#{$element}" in this list; choose one of: #{$list}';
+	@return null;
+}
+
+
+//Taken
+//from
+//Foundation
+@function emCalc($pxWidth) {
+	@return $pxWidth / $em-base * 1em;
+}
+
+@function remCalc($pxWidth) {
+	@return $pxWidth / $em-base * 1rem;
+}
+
+
+//Taken
+//from
+//Bourbon
+$prefix-for-webkit:    true !default;
+$prefix-for-mozilla:   true !default;
+$prefix-for-microsoft: true !default;
+$prefix-for-opera:     true !default;
+$prefix-for-spec:      true !default;
+
+@mixin prefixer ($property, $value, $prefixes) {
+  @each $prefix in $prefixes {
+    @if $prefix == webkit {
+      @if $prefix-for-webkit {
+        -webkit-#{$property}: $value;
+      }
+    }
+    @else if $prefix == moz {
+      @if $prefix-for-mozilla {
+        -moz-#{$property}: $value;
+      }
+    }
+    @else if $prefix == ms {
+      @if $prefix-for-microsoft {
+        -ms-#{$property}: $value;
+      }
+    }
+    @else if $prefix == o {
+      @if $prefix-for-opera {
+        -o-#{$property}: $value;
+      }
+    }
+    @else if $prefix == spec {
+      @if $prefix-for-spec {
+        #{$property}: $value;
+      }
+    }
+    @else  {
+      @warn "Unrecognized prefix: #{$prefix}";
+    }
+  }
+}
+
+@mixin disable-prefix-for-all() {
+	$experimental-support-for-mozilla : false;
+	$experimental-support-for-webkit : false;
+	$support-for-original-webkit-gradients : false;
+	$experimental-support-for-opera : false;
+	$experimental-support-for-microsoft : false;
+	$experimental-support-for-khtml : false;
+}
+
+//Animation
+@mixin animation ($animations...) {
+  @include prefixer(animation, $animations, webkit moz spec);
+}
+@mixin animation-name ($names...) {
+  @include prefixer(animation-name, $names, webkit moz spec);
+}
+@mixin animation-duration ($times...) {
+  @include prefixer(animation-duration, $times, webkit moz spec);
+}
+@mixin animation-timing-function ($motions...) {
+// ease | linear | ease-in | ease-out | ease-in-out
+  @include prefixer(animation-timing-function, $motions, webkit moz spec);
+}
+@mixin animation-iteration-count ($values...) {
+// infinite | <number>
+  @include prefixer(animation-iteration-count, $values, webkit moz spec);
+}
+@mixin animation-direction ($directions...) {
+// normal | alternate
+  @include prefixer(animation-direction, $directions, webkit moz spec);
+}
+@mixin animation-play-state ($states...) {
+// running | paused
+  @include prefixer(animation-play-state, $states, webkit moz spec);
+}
+@mixin animation-delay ($times...) {
+  @include prefixer(animation-delay, $times, webkit moz spec);
+}
+@mixin animation-fill-mode ($modes...) {
+// none | forwards | backwards | both
+  @include prefixer(animation-fill-mode, $modes, webkit moz spec);
+}
+
+// Adds keyframes blocks for supported prefixes, removing redundant prefixes in the block's content
+@mixin keyframes($name) {
+  $original-prefix-for-webkit:    $prefix-for-webkit;
+  $original-prefix-for-mozilla:   $prefix-for-mozilla;
+  $original-prefix-for-microsoft: $prefix-for-microsoft;
+  $original-prefix-for-opera:     $prefix-for-opera;
+  $original-prefix-for-spec:      $prefix-for-spec;
+
+  @if $original-prefix-for-webkit {
+    @include disable-prefix-for-all();
+	$experimental-support-for-webkit : true;
+    @-webkit-keyframes #{$name} {
+      @content;
+    }
+  }
+  @if $original-prefix-for-mozilla {
+    @include disable-prefix-for-all();
+	$experimental-support-for-mozilla : true;
+    @-moz-keyframes #{$name} {
+      @content;
+    }
+  }
+  @if $original-prefix-for-opera {
+    @include disable-prefix-for-all();
+	$experimental-support-for-opera : true;
+    @-o-keyframes #{$name} {
+      @content;
+    }
+  }
+  @if $original-prefix-for-spec {
+    @include disable-prefix-for-all();
+    @keyframes #{$name} {
+      @content;
+    }
+  }
+
+  $prefix-for-webkit:    $original-prefix-for-webkit;
+  $prefix-for-mozilla:   $original-prefix-for-mozilla;
+  $prefix-for-microsoft: $original-prefix-for-microsoft;
+  $prefix-for-opera:     $original-prefix-for-opera;
+  $prefix-for-spec:      $original-prefix-for-spec;
+
+  $experimental-support-for-webkit : true;
+  $experimental-support-for-mozilla : true;
+  $experimental-support-for-opera : true;
+  $support-for-original-webkit-gradients : true;
+  $experimental-support-for-microsoft : true;
+}
+$placeholders: '-webkit-input-placeholder',
+               '-moz-placeholder',
+               '-ms-input-placeholder';
+
+@mixin placeholder {
+  @each $placeholder in $placeholders {
+    @if $placeholder == "-webkit-input-placeholder" {
+      &::#{$placeholder} {
+        @content;
+      }
+    }
+    @else if $placeholder == "-moz-placeholder" {
+      // FF 18-
+      &:#{$placeholder} {
+        @content;
+      }
+
+      // FF 19+
+      &::#{$placeholder} {
+        @content;
+      }
+    }
+    @else {
+      &:#{$placeholder} {
+        @content;
+      }
+    }
+  }
+}

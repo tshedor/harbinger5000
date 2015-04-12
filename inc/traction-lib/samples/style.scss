@@ -1,0 +1,40 @@
+//Put this file in your inc/ folder.
+//Put Traction in inc/traction-lib
+
+@import "compass"; //duh
+
+//Bread and butter, baby
+@import "scss-includes/variables";
+
+//Traction core
+@import
+	"traction-lib/traction-scss/modules/mixins",
+	"traction-lib/traction-scss/modules/font-sizes",
+	"traction-lib/traction-scss/modules/extends";
+
+//Traction styles
+@import "traction-lib/traction-scss/partials/core"; //Base styling
+//@import "traction-lib/traction-scss/partials/shortcodes", //Quick, base shortcode styles for frequent users
+@import "traction-lib/traction-scss/partials/style-guide"; //For the styleguide page template
+//@import "traction-lib/traction-scss/partials/flair", //More expansive WP styling
+
+//Traction vendors (third-party styling)
+//Now, you'll have to add the JS to your own theme. I recommend smooshing everything into one file, and absolutely including these libraries that aren't listed below: hoverIntent, easing, and Modernizr
+
+//@import "traction-lib/traction-scss/vendor/bxslider"; //Slideshows
+@import "traction-lib/traction-scss/vendor/isotope"; //Filtering
+//@import "traction-lib/traction-scss/vendor/magnific"; //Lightbox
+//@import "traction-lib/traction-scss/vendor/prism"; //Syntax highlighter
+//@import "traction-lib/traction-scss/vendor/prism-lite"; //Bare-bones syntax highlighting
+//@import "traction-lib/traction-scss/vendor/superfish"; //Drop-down navigation
+
+//All about you
+@import
+	"scss-includes/global",
+	"scss-includes/navigation",
+	"scss-includes/home",
+	"scss-includes/archive",
+	"scss-includes/single",
+	"scss-includes/responsive",
+	"traction-lib/traction-scss/partials/ie",
+	"scss-includes/ie";

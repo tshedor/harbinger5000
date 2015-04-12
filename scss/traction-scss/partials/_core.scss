@@ -1,0 +1,425 @@
+/** CORE
+===================================*/
+
+/*** GENERAL ***/
+html {
+	font-size:100%;
+	font-size:remCalc(16px);
+}
+body {
+	font-size:16px;
+	font-size:1rem;
+	@include body;
+	line-height:1.4;
+}
+h1, h2, h3, h4, h5, h6, h7, h8 {
+	@include dom;
+	color: $domColor;
+}
+h1 {
+	margin:0px;
+	margin-bottom:10px;
+	color:$domColor;
+	letter-spacing:0px;
+}
+h2 {
+	margin:20px 0px;
+	color:$subColor;
+}
+h3 {
+	color:$terColor;
+}
+h4 {
+	color:$gray;
+}
+.italic {
+	font-style:italic;
+}
+a h1, a h2, a h3, a h4, a h5, a h6 {
+	@include single-transition(all, 0.2s, linear);
+	@include hover($linkColor);
+}
+.circle {
+	@include border-radius(500px);
+}
+pre,code {
+	font-weight:normal;
+	@include word-break(break-all);
+	word-wrap:break-word;
+	white-space: -moz-pre-wrap;
+	white-space: pre-wrap;
+	background:#f4f4f4;
+	border:1px solid #ddd;
+	color:$domColor;
+	font-family:$monospace;
+	padding:4px 8px;
+	@include border-radius(4px);
+}
+pre code {
+	padding:0;
+	border:0;
+	color:$dark_gray;
+}
+th {
+	font-weight:bold;
+	background:$lightest_gray;
+}
+ol {
+	list-style:decimal;
+}
+
+sub {
+	font-size:smaller;
+	vertical-align:sub
+}
+sup {
+	font-size:smaller;
+	vertical-align:super;
+}
+blockquote {
+	padding-top:0px;
+	font-size: 1.5rem;
+	border-left:3px solid $domColor;
+}
+a {
+	@include single-transition(all, 0.2s, linear);
+	color:$linkColor;
+	text-decoration:none!important;
+	&:hover {
+		color:$domColor;
+		text-decoration:none;
+	}
+}
+i {
+	@include inline-block;
+}
+::selection, ::-moz-selection {
+	@include text-shadow(0px);
+}
+
+hr {
+	border-color:$dark_gray;
+	border-bottom:0px;
+}
+
+//Larger Foundation rows
+.row {
+	max-width:72em;
+}
+.clear, .clearfix {
+	@include pie-clearfix;
+	clear:both;
+}
+.full-row {
+	max-width:100%;
+}
+
+//For use with "onScroll" JS function
+.disable-hover, .disable-hover * {
+	pointer-events: none !important;
+}
+
+/* Helper Classes */
+
+.centered {
+	text-align:center;
+}
+.text-left {
+	text-align:left;
+}
+.text-right {
+	text-align:right;
+}
+.pull-left {
+	float:left;
+}
+.pull-right {
+	float:right;
+}
+.aligncenter {
+	display:block;
+	margin:0 auto;
+	text-align:center;
+}
+.hidden {
+	display:none;
+}
+.xlg-margin {
+	margin-top:80px!important;
+	margin-bottom:80px!important;
+}
+.lg-margin {
+	margin-top:40px!important;
+	margin-bottom:40px!important;
+}
+.md-margin {
+	margin-top:20px!important;
+	margin-bottom:20px!important;
+}
+.sm-margin {
+	margin-top:10px!important;
+	margin-bottom:10px!important;
+}
+.lg-padding {
+	padding-top:40px!important;
+	padding-bottom:40px!important;
+}
+.md-padding {
+	padding-top:20px!important;
+	padding-bottom:20px!important;
+}
+.sm-padding {
+	padding-top:10px!important;
+	padding-bottom:10px!important;
+}
+.xlg-text {
+	font-size: 2rem;
+}
+.lg-text {
+	font-size: 1.5rem;
+}
+.md-text {
+	font-size: 1.3rem;
+}
+.sm-text {
+	font-size: 0.8rem;
+}
+.sticky {
+	position:fixed;
+}
+
+.inline-list {
+	margin:0;
+	padding:0;
+	li {
+		@include inline-block;
+		a {
+			display:block;
+		}
+	}
+}
+
+/*** WORDPRESS ***/
+
+/* Media */
+.wp-caption, .gallery-caption {
+	margin:0 auto;
+	margin-bottom:30px;
+	padding:8px;
+	background:$lightest_gray;
+	max-width:100%;
+	img {
+		border:2px solid #fff;
+		margin-bottom:7px;
+	}
+}
+.wp-caption-text {
+	margin-bottom:0px;
+	text-align:center;
+	font-style:italic;
+}
+
+.gallery-item {
+	img {
+		margin:0 auto;
+	}
+}
+.gallery-caption {
+	margin:10px 8px;
+}
+
+
+img.alignleft {
+	float:left;
+	margin-right:10px;
+}
+img.alignright {
+	float:right;
+	margin-left:10px;
+}
+
+.hentry {
+	.mejs-container .mejs-controls {
+		button {
+			&:hover {
+				@include box-shadow(none);
+			}
+		}
+		.mejs-time-rail {
+			.mejs-time-total {
+				background:darken($domColor,18%);
+			}
+			.mejs-time-loaded {
+				background:#C7C7C7;
+			}
+			.mejs-time-current {
+				background:white!important;
+			}
+		}
+		.mejs-volume-slider {
+			background:rgba($domColor,0.8);
+		}
+	}
+	ul {
+		padding-left:0;
+	}
+	ol {
+		margin-left:2em;
+		list-style:decimal;
+	}
+}
+
+/* Format Posts */
+.format-link .post-format-content {
+	font-size: 2rem;
+	border-left:4px solid $domColor;
+	padding-left:18px;
+}
+.format-status p {
+	font-size: 2.9rem;
+	@include light;
+}
+figure.quote {
+	border-left:3px solid $domColor;
+	padding-left:1.1875em;
+	margin:15px inherit;
+	blockquote {
+		padding-left:0px;
+		margin-bottom:0px;
+		border-left:0px;
+		p {
+			margin-bottom:4px;
+		}
+	}
+	figcaption, .quote-caption {
+		display:block;
+		font-size: 0.8rem;
+		color:#555;
+	}
+}
+
+/***** UI *****/
+
+.notice {
+	font-size: 1.3rem;
+}
+.label {
+	padding:2px 4px;
+	@include border-radius(3px);
+}
+.label, .notice, .alert {
+	background:$domColor;
+	color:white;
+	&.success, &.bonus {
+		background:#4AC089;
+	}
+	&.info, &.tip {
+		background:#4487CE;
+	}
+	&.error, &.danger {
+		background:#B64040;
+	}
+}
+.notice, .alert {
+	@include border-radius(3px);
+	@include box-shadow(0px 2px 8px -3px $gray);
+	padding:10px;
+	&.no-shadow{
+		@include box-shadow(none);
+	}
+	a {
+		color:$lightest_gray;
+	}
+	.close {
+		@include text-shadow(none);
+		@include opacity(0.9);
+		position:relative;
+		top:-4px;
+		color:white;
+	}
+}
+.label-warning, .label-important, .label-error {
+	background-color:#b94a48;
+}
+.label-bonus, .label-success {
+	background-color:#468847;
+}
+.social {
+	font-size: 1.5rem;
+	position:absolute;
+	right:0px;
+	i {
+		@include inline-block;
+		padding:0px 2px;
+	}
+}
+
+/* Buttons */
+button, .button, input[type="submit"] {
+	border:1px solid $domColor;
+	padding:0.3em 0.9em;
+	text-align:center;
+	@include inline-block;
+	@include single-transition(all, 0.2s, ease);
+	@include border-radius(500px);
+	font-size: 2rem;
+	color:$domColor;
+	&:hover {
+		border-color:lighten($domColor, 12%);
+	}
+	&:active {
+		border-color:darken($domColor, 10%);
+	}
+}
+
+/* Navigation */
+.page-navigation, .wp-pagenavi {
+	font-size: 2rem;
+	margin:15px 0px;
+	color:$domColor;
+	text-align:center;
+	.prev, .next, .first, .last, .pages {
+		font-size: 0.7remall;
+		margin:0px 6px;
+		text-transform: uppercase;
+	}
+	a {
+		@include hover($domColor);
+		border:0px!important;
+		color:$subColor;
+	}
+	span {
+		border:0px!important;
+	}
+}
+
+ul.menu, .header ul {
+	@include no-list;
+	li {
+		@include inline-block;
+		a {
+			display:block;
+			padding:0px 15px;
+		}
+		&:first-child a {
+			padding-left:0px!important;
+		}
+	}
+}
+.breadcrumbs {
+	font-size: 1.3rem;
+	padding-left:0px;
+	border:0px;
+	background:inherit;
+	a {
+		@include hover($linkColor);
+		color:lighten($gray,12%);
+	}
+}
+.footer {
+	padding:2em 0px;
+	h2 {
+		color:$subColor;
+		text-transform:lowercase;
+	}
+}

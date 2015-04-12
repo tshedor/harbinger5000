@@ -1,0 +1,44 @@
+/** IE
+===================================*/
+
+.ie-warning {
+	display:none;
+}
+.ie {
+	display:block;
+	.ie-warning {
+		overflow:hidden;
+	}
+	&.ie6 {
+		display:block;
+		.ie6-warning {
+			display:block;
+		}
+	}
+	&.ie7 {
+		display:block;
+		.ie7-warning, .ie-warning {
+			display:block;
+		}
+	}
+	&.ie8 {
+		.ie8-warning, .ie-warning {
+			display:block;
+		}
+		.gradient {
+			filter:none;
+		}
+	}
+	&.ie9 {
+		.gradient {
+			filter:none;
+		}
+	}
+	.lt-ie10 {
+		.button, button, input[type="submit"], input[type="button"] {
+			background:lighten($domColor, 10%);
+			@include box-shadow(0 -21px 30px -7px darken($domColor, 5%) inset);
+			filter:none;
+		}
+	}
+}

@@ -1,0 +1,146 @@
+/*!
+ * jQuery Superfish Menu Plugin
+ * Copyright (c) 2013 Joel Birch
+ *
+ * Dual licensed under the MIT and GPL licenses:
+ *	http://www.opensource.org/licenses/mit-license.php
+ *	http://www.gnu.org/licenses/gpl.html
+ */
+
+.sf-menu {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	line-height: 1.0;
+	* {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	ul {
+		position: absolute;
+		top: -999em;
+		width: 10em;
+		background:white;
+		li {
+			margin:0!important;
+			width: 100%;
+		}
+	}
+	li {
+		@include inline-block;
+		position: relative;
+		&:hover {
+			visibility: inherit;
+		}
+		&:hover ul, &.sfHover ul {
+			top: 1.5em;
+			left: 0;
+			z-index: 99;
+		}
+	}
+	a {
+		position: relative;
+		display: block;
+	}
+}
+
+ul.sf-menu li {
+	&:hover li ul, &.sfHover li ul {
+		top: -999em;
+	}
+	li {
+		&:hover ul, &.sfHover ul {
+			top: 0;
+			left: 10em;
+		}
+		&:hover li ul, &.sfHover li ul {
+			top: -999em;
+		}
+		li {
+			&:hover ul, &.sfHover ul {
+				top: 0;
+				left: 10em;
+			}
+		}
+	}
+}
+
+.sf-menu {
+	a {
+		padding: .75em .75em;
+		text-decoration: none;
+		&:focus, &:hover, &:active {
+			outline: 0;
+		}
+		&.sf-with-ul {
+			min-width: 1px;
+			&:after {
+				padding-left:2px;
+				content:'\bb';
+			}
+		}
+	}
+	li {
+		&:hover, &.sfHover {
+			outline: 0;
+		}
+	}
+}
+
+/*** arrows **/
+
+.sf-sub-indicator {
+	position: absolute;
+	top: 1.05em;
+	right: .75em;
+	display: block;
+	overflow: hidden;
+	width: 10px;
+	height: 10px;
+	text-indent: -999em;
+}
+
+a {
+	> .sf-sub-indicator {
+		top: .8em;
+		background-position: 0 -100px;
+	}
+	&:focus > .sf-sub-indicator, &:hover > .sf-sub-indicator, &:active > .sf-sub-indicator {
+		background-position: -10px -100px;
+	}
+}
+
+li {
+	&:hover > a > .sf-sub-indicator, &.sfHover > a > .sf-sub-indicator {
+		background-position: -10px -100px;
+	}
+}
+
+.sf-menu ul {
+	.sf-sub-indicator {
+		background-position: -10px 0;
+	}
+	a {
+		> .sf-sub-indicator {
+			background-position: 0 0;
+		}
+		&:focus > .sf-sub-indicator, &:hover > .sf-sub-indicator, &:active > .sf-sub-indicator {
+			background-position: -10px 0;
+		}
+	}
+	li {
+		&:hover > a > .sf-sub-indicator, &.sfHover > a > .sf-sub-indicator {
+			background-position: -10px 0;
+		}
+	}
+}
+
+.sf-shadow ul {
+	@include border-bottom-right-radius(14px);
+	@include border-bottom-left-radius(14px);
+	padding: 0 8px 9px 0;
+	&.sf-shadow-off {
+		background: transparent;
+	}
+}

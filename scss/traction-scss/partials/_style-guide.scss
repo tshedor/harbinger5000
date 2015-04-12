@@ -1,0 +1,61 @@
+/** STYLE GUIDE
+===================================*/
+
+.color-block {
+	height:200px;
+	&.dom-color {
+		background:$domColor
+	}
+	&.sub-color {
+		background:$subColor
+	}
+	&.ter-color {
+		background:$terColor
+	}
+}
+.font-block {
+	font-size: 2rem;
+	&.font-display {
+		@include dom;
+	}
+	&.font-sub {
+		@include sub;
+	}
+	&.font-body {
+		@include body;
+	}
+	&.font-cond {
+		@include cond;
+	}
+	&.font-light {
+		@include light;
+	}
+}
+.inline-radio {
+	label {
+		@include inline-block;
+	}
+}
+.prefix {
+	background:$light_gray;
+	border-color:#d9d9d9;
+	border-right:0px;
+	color:$dark_gray
+}
+input[type="range"] {
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	background:$light_gray;
+	height:8px;
+	@include box-shadow(inset 1px 1px 6px -3px black);
+	@include border-radius(3px);
+	&::-webkit-slider-thumb {
+		-webkit-appearance:none;
+		-moz-appearance:none;
+		@include border-radius(200px);
+		@include box-shadow(0px 1px 2px 0px $dark_gray);
+		background:$domColor;
+		width:14px;
+		height:14px;
+	}
+}
