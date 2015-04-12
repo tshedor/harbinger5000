@@ -1,0 +1,23 @@
+.header-menu {
+  background: $black;
+  a {
+    @include transition(background 0.2s);
+    @include display;
+    font-size: 1.3rem;
+    background: $black;
+    color: #fff;
+    padding: 12px 15px;
+    &:hover {
+      background: $blue;
+    }
+  }
+  .current_page_item {
+    a {
+      background: $blue;
+    }
+  }
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

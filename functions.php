@@ -6,7 +6,7 @@ if ( function_exists( 'add_theme_support' ) ) {
 }
 
 function custom_scripts(){
-
+	wp_enqueue_script('harbinger', get_template_directory_uri() . '/js/harbinger.js', array('jquery') );
 }
 
 add_action( 'wp_enqueue_scripts', 'custom_scripts', 0);
@@ -19,4 +19,3 @@ $traction_options = array_merge($homewide, $traction_options);
 include_once(get_template_directory() . '/inc/traction-lib/traction.core.php');
 include_once(get_template_directory() . '/functions/menus_sidebars.php');
 include_once(get_template_directory() . '/functions/taxonomies.php');
-include_once(get_template_directory() . '/functions/wp-overrides.php');

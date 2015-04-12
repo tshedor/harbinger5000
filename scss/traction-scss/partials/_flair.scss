@@ -126,7 +126,7 @@
 	text-align:center;
 }
 #reply-title {
-	@include dom;
+	@include display;
 	margin:0px;
 	color:$domColor;
 }

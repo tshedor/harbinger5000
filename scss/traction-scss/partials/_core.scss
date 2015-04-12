@@ -2,42 +2,8 @@
 ===================================*/
 
 /*** GENERAL ***/
-html {
-	font-size:100%;
-	font-size:remCalc(16px);
-}
-body {
-	font-size:16px;
-	font-size:1rem;
-	@include body;
-	line-height:1.4;
-}
-h1, h2, h3, h4, h5, h6, h7, h8 {
-	@include dom;
-	color: $domColor;
-}
-h1 {
-	margin:0px;
-	margin-bottom:10px;
-	color:$domColor;
-	letter-spacing:0px;
-}
-h2 {
-	margin:20px 0px;
-	color:$subColor;
-}
-h3 {
-	color:$terColor;
-}
-h4 {
-	color:$gray;
-}
 .italic {
 	font-style:italic;
-}
-a h1, a h2, a h3, a h4, a h5, a h6 {
-	@include single-transition(all, 0.2s, linear);
-	@include hover($linkColor);
 }
 .circle {
 	@include border-radius(500px);
@@ -144,46 +110,7 @@ hr {
 .hidden {
 	display:none;
 }
-.xlg-margin {
-	margin-top:80px!important;
-	margin-bottom:80px!important;
-}
-.lg-margin {
-	margin-top:40px!important;
-	margin-bottom:40px!important;
-}
-.md-margin {
-	margin-top:20px!important;
-	margin-bottom:20px!important;
-}
-.sm-margin {
-	margin-top:10px!important;
-	margin-bottom:10px!important;
-}
-.lg-padding {
-	padding-top:40px!important;
-	padding-bottom:40px!important;
-}
-.md-padding {
-	padding-top:20px!important;
-	padding-bottom:20px!important;
-}
-.sm-padding {
-	padding-top:10px!important;
-	padding-bottom:10px!important;
-}
-.xlg-text {
-	font-size: 2rem;
-}
-.lg-text {
-	font-size: 1.5rem;
-}
-.md-text {
-	font-size: 1.3rem;
-}
-.sm-text {
-	font-size: 0.8rem;
-}
+
 .sticky {
 	position:fixed;
 }
@@ -354,23 +281,6 @@ figure.quote {
 	}
 }
 
-/* Buttons */
-button, .button, input[type="submit"] {
-	border:1px solid $domColor;
-	padding:0.3em 0.9em;
-	text-align:center;
-	@include inline-block;
-	@include single-transition(all, 0.2s, ease);
-	@include border-radius(500px);
-	font-size: 2rem;
-	color:$domColor;
-	&:hover {
-		border-color:lighten($domColor, 12%);
-	}
-	&:active {
-		border-color:darken($domColor, 10%);
-	}
-}
 
 /* Navigation */
 .page-navigation, .wp-pagenavi {
@@ -390,36 +300,5 @@ button, .button, input[type="submit"] {
 	}
 	span {
 		border:0px!important;
-	}
-}
-
-ul.menu, .header ul {
-	@include no-list;
-	li {
-		@include inline-block;
-		a {
-			display:block;
-			padding:0px 15px;
-		}
-		&:first-child a {
-			padding-left:0px!important;
-		}
-	}
-}
-.breadcrumbs {
-	font-size: 1.3rem;
-	padding-left:0px;
-	border:0px;
-	background:inherit;
-	a {
-		@include hover($linkColor);
-		color:lighten($gray,12%);
-	}
-}
-.footer {
-	padding:2em 0px;
-	h2 {
-		color:$subColor;
-		text-transform:lowercase;
 	}
 }

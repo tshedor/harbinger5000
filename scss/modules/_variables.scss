@@ -11,19 +11,22 @@ Author URI: http://timshedor.com
 
 //Theme colors
 
-$domColor: #0372A0; //Blue
-$subColor: #529C4E; //Green
-$terColor: #C73538; //Red
-$linkColor: $terColor;
+$blue: #3C7CF6;
+$black: #231F20;
+$gray: #E4E4E6;
+
+$domColor: $blue;
+$subColor: $black;
+$terColor: $gray;
+$linkColor: $domColor;
 
 //Default colors (doesn't really need to be changed)
-$gray: #8d8f92;
 $lightest_gray: lighten($gray, 37%);
 $light_gray: lighten($gray, 28%);
 $dark_gray: darken($gray, 20%);
 
 //Fonts
-@mixin dom {
+@mixin display {
   font-family:'bebas_neuebold',$sans;
   font-weight:normal;
 }

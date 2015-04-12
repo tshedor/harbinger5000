@@ -3,15 +3,31 @@
 <!--[if IE 8]>         <html class="ie ie8 lt-ie9 lt-ie10" <?php language_attributes(); ?>> <![endif]-->
 <!--[if IE 9]>         <html class="ie ie9 lt-ie10" <?php language_attributes(); ?>> <![endif]-->
 <head>
-	<title><?php if(!is_home()) { wp_title(''); echo " | "; } bloginfo('name'); if(is_home()) { echo " | "; bloginfo('description'); } ?></title>
-	<?php wp_head(); ?>
-	<link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
+  <title><?php if(!is_home()) { wp_title(''); echo " | "; } bloginfo('name'); if(is_home()) { echo " | "; bloginfo('description'); } ?></title>
+  <?php wp_head(); ?>
+  <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
 </head>
 <body <?php body_class(); ?>>
-	<div class="row clearfix xlg-padding">
-		<div class="large-9 large-centered columns">
-			<a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); echo ' | '; bloginfo('description'); ?>">
-				<?php bloginfo('title'); ?>
-			</a>
-		</div>
-	</div>
+  <div class="row clearfix">
+    <div class="large-9 large-centered columns">
+      <a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); echo ' | '; bloginfo('description'); ?>">
+        <?php bloginfo('title'); ?>
+      </a>
+    </div>
+  </div>
+  <div class="row clearfix">
+    <div class="large-12 columns">
+
+      <div class="header-menu">
+        <div class="row clearfix header-menu collapse">
+          <div class="large-11 columns">
+            <?php wp_nav_menu(array( 'theme_location' => 'primary_menu', 'container' => '', 'items_wrap' => '<ul class="link-list sf-menu menu">%3$s</ul>', )); ?>
+          </div>
+          <div class="large-1 columns text-right">
+            <i class="icon-search search-trigger js-search-trigger"></i>
+          </div>
+          <?php get_search_form(); ?>
+        </div>
+      </div>
+    </div>
+  </div>

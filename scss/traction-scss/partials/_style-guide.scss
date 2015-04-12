@@ -16,7 +16,7 @@
 .font-block {
 	font-size: 2rem;
 	&.font-display {
-		@include dom;
+		@include display;
 	}
 	&.font-sub {
 		@include sub;
