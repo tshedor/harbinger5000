@@ -21,3 +21,16 @@
     margin-right: 0;
   }
 }
+
+.masthead-graphic,
+.logo {
+  display: inline-block;
+  vertical-align: bottom;
+}
+.masthead-graphic {
+  width: 25%;
+  margin-left: 3%;
+}
+.logo {
+  width: 70%;
+}

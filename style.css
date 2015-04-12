@@ -566,6 +566,24 @@ h3 {
   border-bottom: 2px solid #231F20;
   text-align: center; }
 
+.slide-title {
+  position: relative;
+  overflow: hidden; }
+  .slide-title .slide-cover {
+    -moz-transition: bottom 0.2s;
+    -o-transition: bottom 0.2s;
+    -webkit-transition: bottom 0.2s;
+    transition: bottom 0.2s;
+    position: absolute;
+    bottom: -100%;
+    width: 100%;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px 20px;
+    color: #fff; }
+  .slide-title.active .slide-cover {
+    bottom: 0; }
+
 .search-trigger {
   color: #fff;
   padding: 14px;
@@ -607,3 +625,23 @@ h3 {
   .header-menu .row {
     margin-left: 0;
     margin-right: 0; }
+
+.masthead-graphic,
+.logo {
+  display: inline-block;
+  vertical-align: bottom; }
+
+.masthead-graphic {
+  width: 25%;
+  margin-left: 3%; }
+
+.logo {
+  width: 70%; }
+
+.hero-wrapper {
+  font-family: "bebas_neuebold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  margin: 15px 0;
+  font-size: 1.5rem; }
+  .hero-wrapper a {
+    display: block; }

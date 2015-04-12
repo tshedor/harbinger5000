@@ -30,7 +30,11 @@
 //All about you
 @import
   'partials/base',
+  'partials/slide-title',
   'partials/search';
 
 @import
   'layout/header';
+
+@import
+  'views/home';

@@ -1191,9 +1191,9 @@ class TractionMetaBoxes {
 			if($field['type'] == 'checkbox' && !isset($_POST[$field['id']])){
 				$new = '';
 			}
-			if ($new && $new != $old) {
+			if (isset($new) && $new && $new != $old) {
 				update_post_meta($post_id, $field['id'], $new);
-			} elseif ('' == $new && $old) {
+			} elseif ($old) {
 				delete_post_meta($post_id, $field['id'], $old);
 			}
 		}

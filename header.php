@@ -9,9 +9,10 @@
 </head>
 <body <?php body_class(); ?>>
   <div class="row clearfix">
-    <div class="large-9 large-centered columns">
-      <a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); echo ' | '; bloginfo('description'); ?>">
-        <?php bloginfo('title'); ?>
+    <div class="large-12 columns">
+      <a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); echo ' | '; bloginfo('description'); ?>" class="logo-wrapper">
+        <img src="<?php echo get_template_directory_uri(); ?>/img/masthead-graphic.png" alt="<?php bloginfo('name'); ?>" class="masthead-graphic" />
+        <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php bloginfo('name'); ?>" class="logo" />
       </a>
     </div>
   </div>

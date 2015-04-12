@@ -5,6 +5,7 @@ var $ = jQuery.noConflict();
 var HB = {
   init: function(){
     this.nav.init();
+    this.ui.init();
   },
 
   nav: {
@@ -20,6 +21,19 @@ var HB = {
         if($form.is(':visible')) {
           $form.find('input').focus();
         }
+      });
+    }
+
+  },
+
+  ui: {
+    init: function() {
+      this._slideUp();
+    },
+
+    _slideUp: function() {
+      $('.js-slide-title').hover(function() {
+        $(this).toggleClass('active');
       });
     }
 
