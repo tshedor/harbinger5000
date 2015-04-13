@@ -31,11 +31,13 @@
 @import
   'partials/base',
   'partials/slide-title',
-  'partials/search';
+  'partials/search',
+  'partials/tease';
 
 @import
   'layout/header',
   'layout/sidebar';
 
 @import
+  'views/archive',
   'views/home';

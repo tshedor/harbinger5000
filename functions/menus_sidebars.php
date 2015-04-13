@@ -8,22 +8,12 @@ add_action( 'init', 'register_custom_menu' );
 
 register_sidebar(array(
   'name'      =>  __( 'Sidebar' ),
-  'id'      => 'main_sidebar',
+  'id'      => 'main-sidebar',
   'description' =>  __( 'The right sidebar appearing on single and archive pages' ),
   'before_widget' =>  '<div class="widget %2$s" id="%1$s">',
-  'after_widget'  =>  '</div>',
-  'before_title'  =>  '<h4 class="text-center">',
-  'after_title' =>  '</h4>'
-));
-
-register_sidebar(array(
-  'name'      =>  __( 'Left Single Sidebar' ),
-  'id'      => 'single_left',
-  'description' =>  __( 'The left sidebar appearing on single pages' ),
-  'before_widget' =>  '<div class="widget %2$s" id="%1$s">',
-  'after_widget'  =>  '</div>',
-  'before_title'  =>  '<h4 class="text-center">',
-  'after_title' =>  '</h4>'
+  'after_widget'  =>  '</div></div>',
+  'before_title'  =>  '<h3>',
+  'after_title' =>  '</h3><div class="widget-content">'
 ));
 
 if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar() ) : endif;

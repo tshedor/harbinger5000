@@ -1,0 +1,42 @@
+.tease {
+  background: $gray;
+  margin: 10px 0;
+  &-content {
+    padding: 10px;
+  }
+}
+.meta {
+  margin-bottom: 15px;
+  a {
+    color: #fff;
+    display: block;
+  }
+  li {
+    display: inline-block;
+  }
+  .post-categories {
+    display: inline-block;
+    margin-bottom: 0;
+    background: $blue;
+    padding: 4px 8px;
+    position: relative;
+    &:after {
+      content: '';
+      width: 0;
+      height: 0;
+      position: absolute;
+      left: 100%;
+      top: 0;
+      border-style: solid;
+      border-width: 30px 15px 0 0;
+      border-color: $blue transparent transparent transparent;
+    }
+  }
+}
+.byline {
+  font-style: italic;
+  color: $black;
+  &:hover {
+    color: $blue;
+  }
+}
