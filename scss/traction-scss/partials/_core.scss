@@ -248,14 +248,14 @@ figure.quote {
 	}
 }
 .notice, .alert {
-	@include border-radius(3px);
 	@include box-shadow(0px 2px 8px -3px $gray);
-	padding:10px;
 	&.no-shadow{
 		@include box-shadow(none);
 	}
 	a {
-		color:$lightest_gray;
+		color: #fff;
+		display: block;
+		padding:10px;
 	}
 	.close {
 		@include text-shadow(none);

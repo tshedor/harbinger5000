@@ -34,3 +34,13 @@
 .logo {
   width: 70%;
 }
+.alert {
+  @include display;
+  margin-bottom: 20px;
+  &.info {
+    background: $blue;
+  }
+  a {
+    font-size: 1.4rem;
+  }
+}

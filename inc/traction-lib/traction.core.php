@@ -37,6 +37,16 @@ class Traction {
 	}
 
 	/**
+	* WP_Query for popular posts
+	* @uses WP_Query
+	* @param int $post_count how many posts to return
+	*/
+	static function queryPopular($post_count = 5) {
+		$query = new WP_Query(array('meta_key' => 'post_views_count', 'orderby' => 'meta_value_num', 'order' => 'DESC', 'showposts' => $post_count, 'w' => date('W'), 'year' => date('Y')));
+		return $query;
+	}
+
+	/**
 	* Determine if current view (usually archive) is paged
 	* @uses $_GET['paged']
 	* @return string current paginated page
@@ -72,22 +82,33 @@ class Traction {
 	* @param bool $just_url only return the URL of the image
 	* @param int $id if $post is unavailable or to retrieve specific image
 	*/
-	static function get_image($size = 'medium',$class = '',$attr = NULL, $just_url = false, $id = NULL){
+	static function get_image($size = 'medium', $args = array()){
 		global $post, $a;
-		if(empty($id))
-			$id = $post->ID;
+
+		$defaults = array(
+			'id' => $post->ID,
+			'attr' => NULL,
+			'just_url' => false,
+			'class' => '',
+			'link_to_post' => true
+		);
+
+		$args = wp_parse_args( $args, $defaults );
 
 		//Use get_the_image if available
 		if(function_exists('get_the_image')){
 
 			//Set get the image settings
-			$gti_settings = array('image_scan' => true, 'meta_key_save' => true, 'post_id' => $id, 'size' => $size, 'image_class' => $class);
+			$gti_settings = array('image_scan' => true, 'meta_key_save' => true, 'post_id' => $args['id'], 'size' => $size, 'image_class' => $args['class']);
+
+			$gti_settings = array_merge($gti_settings, array('link_to_post' => $args['link_to_post']));
 
 			//Apply attributes array if available
-			if(!empty($attr))
-				$gti_settings = array_merge($gti_settings, $attr);
+			if(!empty($args['attr']))
+				$gti_settings = array_merge($gti_settings, $args['attr']);
 
-			if($just_url){
+
+			if($args['just_url']){
 
 				$gti_settings = array_merge($gti_settings, array('format' => 'array'));
 				$gti = get_the_image($gti_settings);
@@ -101,28 +122,20 @@ class Traction {
 			}
 
 		//See if the post has a thumbnail
-		} elseif(has_post_thumbnail($id)) {
+		} elseif(has_post_thumbnail($args['id'])) {
 
 			//Only get the URL
-			if($just_url){
+			if($args['just_url']){
 
-				$image = wp_get_attachment_image_src(get_post_thumbnail_id($id), $size);
+				$image = wp_get_attachment_image_src(get_post_thumbnail_id($args['id']), $size);
 				return $image[0];
 
 			} else {
 
-				//See if we should link to the post
-				$link_to_post = true;
-				if(!empty($attr)){
-					if($attr['link_to_post'] && $attr['link_to_post'] == false){
-						$link_to_post = false;
-					}
-				}
-
 				//Echo out the result
-				if($link_to_post) echo '<a href="' . get_permalink($id) . '" title="' . esc_attr(get_post_field('post_title', $id)) . '">';
-					the_post_thumbnail($size, array('class' => $class, $attr));
-				if($link_to_post) echo '</a>';
+				if($args['link_to_post']) echo '<a href="' . get_permalink($args['id']) . '" title="' . esc_attr(get_post_field('post_title', $args['id'])) . '">';
+					the_post_thumbnail($size, array('class' => $class, $args['attr']));
+				if($args['link_to_post']) echo '</a>';
 				return;
 			}
 
@@ -130,32 +143,24 @@ class Traction {
 		} elseif($a['get_first_image']) {
 
 			//http://wpforce.com/automatically-set-the-featured-image-in-wordpress/
-			$attached_image = get_children( "post_parent=".$post->ID."&post_type=attachment&post_mime_type=image&numberposts=1" );
+			$attached_image = get_children( "post_parent=".$args['id']."&post_type=attachment&post_mime_type=image&numberposts=1" );
 
 			//If there is an image available
 			if($attached_image){
 				foreach ($attached_image as $attachment_id => $attachment) { //This only returns one image, but it's hard to just get the first result
-					set_post_thumbnail($id, $attachment_id);
+					set_post_thumbnail($args['id'], $attachment_id);
 				}
 
 				//End if we're just getting the URL
-				if($just_url){
-					$image = wp_get_attachment_image_src(get_post_thumbnail_id($id), $size);
+				if($args['just_url']){
+					$image = wp_get_attachment_image_src(get_post_thumbnail_id($args['id']), $size);
 					return $image[0];
 				}
 
-				//See if we should link to the post
-				$link_to_post = true;
-				if(!empty($attr)){
-					if($attr['link_to_post'] && $attr['link_to_post'] == false){
-						$link_to_post = false;
-					}
-				}
-
 				//Echo out the result
-				if($link_to_post) echo '<a href="' . get_permalink($id) . '" title="' . esc_attr(get_post_field('post_title', $id)) . '">';
-					the_post_thumbnail($size, array('class' => $class, $attr));
-				if($link_to_post) echo '</a>';
+				if($args['link_to_post']) echo '<a href="' . get_permalink($args['id']) . '" title="' . esc_attr(get_post_field('post_title', $args['id'])) . '">';
+					the_post_thumbnail($size, array('class' => $class, $args['attr']));
+				if($args['link_to_post']) echo '</a>';
 				return;
 
 			//Search post content for an inserted image
@@ -167,22 +172,16 @@ class Traction {
 					return false;
 				} else {
 
-					if($just_url){
+					if($args['just_url']){
 						return $first_img;
 					}
 
-					//See if we should link to the post
-					$link_to_post = true;
-					if(!empty($attr) && $attr['link_to_post'] && $attr['link_to_post'] == false){
-						$link_to_post = false;
-					}
-
 					//Echo out the result
-					if($link_to_post) echo '<a href="' . get_permalink($id) . '" title="' . esc_attr(get_post_field('post_title', $id)) . '">';
+					if($args['link_to_post']) echo '<a href="' . get_permalink($args['id']) . '" title="' . esc_attr(get_post_field('post_title', $args['id'])) . '">';
 						echo '<img src="' . $first_img . '"';
-						if(!empty($attr) && $attr['alt']) echo ' alt="' . $attr['alt'] . '"';
+						if(!empty($args['attr']) && $args['attr']['alt']) echo ' alt="' . $args['attr']['alt'] . '"';
 						echo '/>';
-					if($link_to_post) echo '</a>';
+					if($args['link_to_post']) echo '</a>';
 					return;
 
 				}

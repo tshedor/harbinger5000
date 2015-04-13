@@ -1,8 +1,8 @@
 .hero-wrapper {
   @include display;
-  margin: 15px 0;
-  font-size: 1.5rem;
+  margin: 15px auto;
   a {
+    font-size: 1.5rem;
     display: block;
   }
 }

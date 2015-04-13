@@ -1,0 +1,11 @@
+aside {
+  background: $gray;
+  padding: 10px 15px;
+}
+.large-first {
+  h4 {
+    &:first-child {
+      font-size: 1.5rem;
+    }
+  }
+}
