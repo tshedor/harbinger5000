@@ -28,8 +28,26 @@ $homeopts = array(
   ),
   array(
     'name'  => 'Supplement Box',
-    'desc'  => 'The box next to popular after the hero. Displays 5 of the most recent posts',
+    'desc'  => 'The box next to popular after the hero. Displays 5 of the most recent posts (should be Videos)',
     'id'    => 'home_supplement_category',
+    'type'  => 'categories',
+  ),
+  array(
+    'name'  => 'Supplement Box',
+    'desc'  => 'The box next to popular after the hero. Displays 5 of the most recent posts (should be Videos)',
+    'id'    => 'home_supplement_category',
+    'type'  => 'categories',
+  ),
+  array(
+    'name'  => 'Latest Issue Embed Code',
+    'desc'  => 'Raw embed code from Issuu',
+    'id'    => 'home_latest_issue',
+    'type'  => 'textareacode',
+  ),
+  array(
+    'name'  => 'Below the Fold Box',
+    'desc'  => 'The box next to latest issue. Displays the most recent posts (should be Homegrown)',
+    'id'    => 'home_below_fold_category',
     'type'  => 'categories',
   ),
   array(
@@ -50,6 +68,11 @@ $site_categories = array(
     'type'  => 'categories',
   ),
   array(
+    'name'  => 'Photos',
+    'id'    => 'photos_category',
+    'type'  => 'categories',
+  ),
+  array(
     'type'  => 'endarray',
     'id'    => 'endarray'
   )
@@ -57,7 +80,7 @@ $site_categories = array(
 
 $breaking_opts = array(
   array(
-    'name'  =>  'Breaking News',
+    'name'  =>  'Header Stuff',
     'id'    =>  'separate',
     'type'  =>  'separate',
   ),
@@ -77,6 +100,17 @@ $breaking_opts = array(
     'type'  => 'posts',
   ),
   array(
+    'id'    => 'clearfix',
+    'type'  => 'clearfix'
+  ),
+  array(
+    'name'  => 'Masthead Graphic',
+    'desc'  => 'Nestled next to the logo',
+    'id'    => 'masthead_graphic',
+    'std'   => get_template_directory_uri() . '/img/masthead-graphic.png',
+    'type'  => 'media',
+  ),
+  array(
     'type'  => 'endarray',
     'id'    => 'endarray'
   )
@@ -88,4 +122,6 @@ $traction_options = array_merge($custom, $traction_options);
 include_once(get_template_directory() . '/inc/traction-lib/traction.core.php');
 include_once(get_template_directory() . '/functions/harbinger.php');
 include_once(get_template_directory() . '/functions/menus_sidebars.php');
+include_once(get_template_directory() . '/functions/sponsors-pt.php');
+include_once(get_template_directory() . '/functions/sponsors-meta.php');
 include_once(get_template_directory() . '/functions/taxonomies.php');
