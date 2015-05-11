@@ -5,22 +5,28 @@ array(
 	'desc'	=> '',
 	'id'	=> 'post_layout',
 	'std'	=> 'default',
+	'def'	=> 'basic-right',
 	'type'	=> 'radio',
 	'options' => array(
 		array(
-			'label' => __('Right Sidebar', 'trwp'),
-			'value' => 'default',
-			'image'	=>	get_template_directory_uri().'/inc/traction-lib/post-meta/right-sidebar.png'
+			'name' => __('Basic Right', 'trwp'),
+			'id' => 'basic-right',
+			'image'	=>	get_template_directory_uri().'/inc/traction-lib/post-meta/basic-right.jpg'
 		),
 		array(
-			'label' => __('Left Sidebar', 'trwp'),
-			'value' => 'left-sidebar',
-			'image'	=>	get_template_directory_uri().'/inc/traction-lib/post-meta/left-sidebar.png'
+			'name' => __('Right Sidebar', 'trwp'),
+			'id' => 'right-sidebar',
+			'image'	=>	get_template_directory_uri().'/inc/traction-lib/post-meta/right-sidebar.jpg'
 		),
 		array(
-			'label' => __('Full Width', 'trwp'),
-			'value' => 'full-width',
-			'image'	=>	get_template_directory_uri().'/inc/traction-lib/post-meta/full-width.png'
+			'name' => __('Left Sidebar', 'trwp'),
+			'id' => 'left-sidebar',
+			'image'	=>	get_template_directory_uri().'/inc/traction-lib/post-meta/left-sidebar.jpg'
+		),
+		array(
+			'name' => __('Full Width', 'trwp'),
+			'id' => 'full-width',
+			'image'	=>	get_template_directory_uri().'/inc/traction-lib/post-meta/full-width.jpg'
 		),
 	)
 ),

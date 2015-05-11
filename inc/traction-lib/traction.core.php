@@ -435,7 +435,7 @@ class Traction {
 	}
 
 	/**
-	* Retrieve an array key from it's value
+	* Retrieve an array key from its value
 	* @param array $array the haystack
 	* @param object $arrayValue
 	* @return $key array key || false on failure

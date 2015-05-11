@@ -17,5 +17,5 @@ get_template_part('loop-page', 'header'); ?>
 </div>
 
 <?php endwhile; else :
-	get_template_part('inc/loop', 'error');
+	get_template_part('shared/loop', 'error');
  endif; get_footer(); ?>

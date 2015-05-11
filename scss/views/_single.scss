@@ -1,0 +1,24 @@
+.single-header {
+  @include body_copy;
+  margin: 20px 0;
+  h1 {
+    @include sub;
+    color: $black;
+    margin: 0;
+  }
+  .byline,
+  .dateline {
+    font-size: 1.125rem;
+
+  }
+}
+.single-post {
+  .meta {
+    margin: 20px 0 30px;
+  }
+}
+
+.entry {
+  @include body_copy;
+
+}

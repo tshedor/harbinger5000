@@ -31,12 +31,16 @@ $dark_gray: darken($gray, 20%);
   font-weight:normal;
 }
 @mixin sub {
-  font-family:'bebas_neue_regularregular',$monospace;
-  font-weight:normal;
+  font-family: 'Roboto Condensed', $sans;
+  font-weight: 600;
 }
 @mixin body {
   font-family:'Noto Sans', $sans;
   font-weight:400;
+}
+@mixin body_copy {
+  font-family: 'Noto Serif', $serif;
+  font-weight: 400;
 }
 
 @mixin cond {

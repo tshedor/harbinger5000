@@ -332,8 +332,8 @@ figure.quote {
     font-family: "bebas_neuebold", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: normal; }
   .font-block.font-sub {
-    font-family: "bebas_neue_regularregular", "Bitstream Vera Sans Mono", Consolas, Monaco, Menlo, "Andale Mono", monospace;
-    font-weight: normal; }
+    font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600; }
   .font-block.font-body {
     font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400; }
@@ -543,7 +543,8 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: "bebas_neuebold", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
-  color: #3C7CF6; }
+  color: #3C7CF6;
+  line-height: 1.2; }
 
 h1 {
   margin: 20px 0 10px;
@@ -636,21 +637,43 @@ h3 {
   margin: 10px 0; }
   .tease-content {
     padding: 10px; }
+  .tease h4 {
+    font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 0;
+    line-height: 1.2; }
+    .tease h4 a {
+      color: #231F20; }
+      .tease h4 a:hover {
+        color: #3C7CF6; }
 
 .meta {
-  margin-bottom: 15px; }
+  margin-bottom: 5px; }
   .meta a {
     color: #fff;
     display: block; }
   .meta li {
     display: inline-block; }
   .meta .post-categories {
+    -moz-transition: background 0.3s;
+    -o-transition: background 0.3s;
+    -webkit-transition: background 0.3s;
+    transition: background 0.3s;
     display: inline-block;
     margin-bottom: 0;
     background: #3C7CF6;
     padding: 4px 8px;
     position: relative; }
+    .meta .post-categories:hover {
+      background: #231F20; }
+      .meta .post-categories:hover:after {
+        border-color: #231F20 transparent transparent transparent; }
     .meta .post-categories:after {
+      -moz-transition: border-color 0.3s;
+      -o-transition: border-color 0.3s;
+      -webkit-transition: border-color 0.3s;
+      transition: border-color 0.3s;
       content: '';
       width: 0;
       height: 0;
@@ -662,10 +685,11 @@ h3 {
       border-color: #3C7CF6 transparent transparent transparent; }
 
 .byline {
-  font-style: italic;
-  color: #231F20; }
-  .byline:hover {
-    color: #3C7CF6; }
+  font-style: italic; }
+  .byline a {
+    color: #231F20; }
+    .byline a:hover {
+      color: #3C7CF6; }
 
 .header-menu {
   background: #231F20; }
@@ -735,3 +759,23 @@ aside {
 
 .featured-strip {
   margin-top: 15px; }
+
+.single-header {
+  font-family: "Noto Serif", Georgia, serif;
+  font-weight: 400;
+  margin: 20px 0; }
+  .single-header h1 {
+    font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    color: #231F20;
+    margin: 0; }
+  .single-header .byline,
+  .single-header .dateline {
+    font-size: 1.125rem; }
+
+.single-post .meta {
+  margin: 20px 0 30px; }
+
+.entry {
+  font-family: "Noto Serif", Georgia, serif;
+  font-weight: 400; }

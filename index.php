@@ -4,14 +4,19 @@
   if(have_posts()) : while(have_posts()) : the_post();
     get_template_part('loop', 'single');
   endwhile; else :
-    get_template_part('inc/loop', 'error');
+    get_template_part('shared/loop', 'error');
   endif;
 } else {
   if(have_posts()) :
-    include_once(get_template_directory() . '/shared/archive-title.php'); ?>
+    get_template_part('shared/archive-title'); ?>
 
     <section class="row clearfix">
       <div class="large-8 columns">
+        <?php
+          Harbinger::template('slide-over',
+            array('image_size' => 'archive_hero')
+          ); ?>
+
         <h2>Recent</h2>
         <?php while(have_posts()) : the_post();
           get_template_part('loop', 'tease');
@@ -28,7 +33,7 @@
 
   <?php
   else :
-    get_template_part('inc/loop', 'error');
+    get_template_part('shared/loop', 'error');
   endif;
 } // if it's not singular
 get_footer(); ?>

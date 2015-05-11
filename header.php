@@ -5,7 +5,7 @@
 <head>
   <title><?php if(!is_home()) { wp_title(''); echo " | "; } bloginfo('name'); if(is_home()) { echo " | "; bloginfo('description'); } ?></title>
   <?php wp_head(); ?>
-  <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic|Roboto+Condensed:400,700|Noto+Serif:400,400italic' rel='stylesheet' type='text/css'>
 </head>
 <body <?php body_class(); ?>>
   <?php

@@ -4,6 +4,8 @@ include_once(get_template_directory().'/inc/traction-lib/traction.core-options.p
 if ( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'post-thumbnails' );
   add_image_size( 'hero', 930, 500, true );
+  add_image_size( 'archive_hero', 650, 450, true );
+  add_image_size( 'skinny_hero', 650, 150, true );
   add_image_size( 'hero_sidekick', 360, 125, true );
 }
 

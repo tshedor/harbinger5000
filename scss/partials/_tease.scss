@@ -4,9 +4,21 @@
   &-content {
     padding: 10px;
   }
+  h4 {
+    @include sub;
+    font-size: 2rem;
+    margin-bottom: 0;
+    line-height: 1.2;
+    a {
+      color: $black;
+      &:hover {
+        color: $blue;
+      }
+    }
+  }
 }
 .meta {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   a {
     color: #fff;
     display: block;
@@ -15,12 +27,20 @@
     display: inline-block;
   }
   .post-categories {
+    @include transition(background 0.3s);
     display: inline-block;
     margin-bottom: 0;
     background: $blue;
     padding: 4px 8px;
     position: relative;
+    &:hover {
+      background: $black;
+      &:after {
+        border-color: $black transparent transparent transparent;
+      }
+    }
     &:after {
+      @include transition(border-color 0.3s);
       content: '';
       width: 0;
       height: 0;
@@ -35,8 +55,10 @@
 }
 .byline {
   font-style: italic;
-  color: $black;
-  &:hover {
-    color: $blue;
+  a {
+    color: $black;
+    &:hover {
+      color: $blue;
+    }
   }
 }
