@@ -16,6 +16,45 @@ function custom_scripts(){
 add_action( 'wp_enqueue_scripts', 'custom_scripts', 0);
 
 $themename = "Harbinger 5000";
+
+$breaking_opts = array(
+  array(
+    'name'  =>  'Header Stuff',
+    'id'    =>  'separate',
+    'type'  =>  'separate',
+  ),
+  array(
+    'name'  => 'Breaking News Text',
+    'desc'  => 'Short description before the breaking news post title',
+    'std'   => 'BREAKING: ',
+    'id'    => 'breaking_news_text',
+    'class' => 'half',
+    'type'  => 'text',
+  ),
+  array(
+    'name'  => 'Breaking News Post',
+    'desc'  => 'If a news story is breaking news, select it from the list. To remove the alert on the site, set this field to "Select One"',
+    'id'    => 'breaking_news_post',
+    'class' => 'half',
+    'type'  => 'posts',
+  ),
+  array(
+    'id'    => 'clearfix',
+    'type'  => 'clearfix'
+  ),
+  array(
+    'name'  => 'Masthead Graphic',
+    'desc'  => 'Nestled next to the logo',
+    'id'    => 'masthead_graphic',
+    'std'   => get_template_directory_uri() . '/img/masthead-graphic.png',
+    'type'  => 'media',
+  ),
+  array(
+    'type'  => 'endarray',
+    'id'    => 'endarray'
+  )
+);
+
 $homeopts = array(
   array(
     'name'  =>  'Homepage',
@@ -80,45 +119,7 @@ $site_categories = array(
   )
 );
 
-$breaking_opts = array(
-  array(
-    'name'  =>  'Header Stuff',
-    'id'    =>  'separate',
-    'type'  =>  'separate',
-  ),
-  array(
-    'name'  => 'Breaking News Text',
-    'desc'  => 'Short description before the breaking news post title',
-    'std'   => 'BREAKING: ',
-    'id'    => 'breaking_news_text',
-    'class' => 'half',
-    'type'  => 'text',
-  ),
-  array(
-    'name'  => 'Breaking News Post',
-    'desc'  => 'If a news story is breaking news, select it from the list. To remove the alert on the site, set this field to "Select One"',
-    'id'    => 'breaking_news_post',
-    'class' => 'half',
-    'type'  => 'posts',
-  ),
-  array(
-    'id'    => 'clearfix',
-    'type'  => 'clearfix'
-  ),
-  array(
-    'name'  => 'Masthead Graphic',
-    'desc'  => 'Nestled next to the logo',
-    'id'    => 'masthead_graphic',
-    'std'   => get_template_directory_uri() . '/img/masthead-graphic.png',
-    'type'  => 'media',
-  ),
-  array(
-    'type'  => 'endarray',
-    'id'    => 'endarray'
-  )
-);
-
-$custom = array_merge($homeopts, $site_categories, $breaking_opts);
+$custom = array_merge($breaking_opts, $homeopts, $site_categories);
 $traction_options = array_merge($custom, $traction_options);
 
 include_once(get_template_directory() . '/inc/traction-lib/traction.core.php');
