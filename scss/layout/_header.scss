@@ -11,7 +11,7 @@
       background: $blue;
     }
   }
-  .current_page_item {
+  .current_menu_item {
     a {
       background: $blue;
     }
@@ -42,5 +42,17 @@
   }
   a {
     font-size: 1.4rem;
+  }
+}
+
+.sf-menu {
+  li.sfHover ul {
+    top: 100%;
+  }
+}
+.sf-shadow {
+  ul {
+    @include border-radius(0);
+    padding: 0;
   }
 }

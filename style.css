@@ -706,7 +706,7 @@ h3 {
     padding: 12px 15px; }
     .header-menu a:hover {
       background: #3C7CF6; }
-  .header-menu .current_page_item a {
+  .header-menu .current_menu_item a {
     background: #3C7CF6; }
   .header-menu .row {
     margin-left: 0;
@@ -733,6 +733,15 @@ h3 {
   .alert a {
     font-size: 1.4rem; }
 
+.sf-menu li.sfHover ul {
+  top: 100%; }
+
+.sf-shadow ul {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  padding: 0; }
+
 aside {
   background: #E4E4E6;
   padding: 10px 15px; }
@@ -742,6 +751,28 @@ aside {
 
 .widget .widget-content {
   padding: 5px 10px; }
+
+.footer {
+  background: #231F20;
+  color: #fff;
+  text-align: left;
+  padding: 20px 0;
+  margin-top: 20px; }
+  .footer a {
+    color: #fff; }
+    .footer a:hover {
+      color: #E4E4E6; }
+  .footer ul li {
+    display: inline-block; }
+    .footer ul li:first-child a:before {
+      display: none; }
+  .footer ul a {
+    display: block; }
+    .footer ul a:before {
+      content: '\2022';
+      padding: 0 8px; }
+    .footer ul a:hover:before {
+      color: #fff; }
 
 .archive-head h1 {
   color: #231F20;

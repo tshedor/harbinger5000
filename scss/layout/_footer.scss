@@ -1,0 +1,37 @@
+.footer {
+  background: $black;
+  color: $white;
+  text-align: left;
+  padding: 20px 0;
+  margin-top: 20px;
+  a {
+    color: $white;
+    &:hover {
+      color: $gray;
+    }
+  }
+  ul {
+    li {
+      display: inline-block;
+      &:first-child {
+        a {
+          &:before {
+            display: none;
+          }
+        }
+      }
+    }
+    a {
+      display: block;
+      &:before {
+        content: '\2022';
+        padding: 0 8px;
+      }
+      &:hover {
+        &:before {
+          color: $white;
+        }
+      }
+    }
+  }
+}
