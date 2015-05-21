@@ -16,6 +16,10 @@
       <?php the_category(); ?>
     </div>
 
+    <ul class="social-single">
+      <?php Traction::social_single(false); ?>
+    </ul>
+
     <?php comments_template(); ?>
 
   </div>

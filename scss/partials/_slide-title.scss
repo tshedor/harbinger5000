@@ -5,13 +5,15 @@
     display: inline-block;
   }
   .slide-cover {
+    @include sub;
     position: absolute;
     bottom: 0;
     width: 100%;
     left: 0;
-    background: rgba(0,0,0,0.8);
+    background: rgba($black, 0.8);
     padding: 15px 20px;
-    color: #fff;
+    color: $white;
+    padding: 40px 0 0;
   }
   &-title {
     @include transition(bottom 0.2s);

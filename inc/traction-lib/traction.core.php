@@ -219,8 +219,7 @@ class Traction {
 			$postID = $post;
 		}
 		if($a['show_social']){
-			$share_array = array('facebook', 'twitter', 'linkedin', 'youtube', 'pinterest', 'google-plus', 'stumbleupon', 'dribbble');
-			if($a['show_print']) array_push($share_array, 'htmlprint');
+			$share_array = array('facebook', 'twitter', 'linkedin', 'pinterest', 'google-plus', 'stumbleupon');
 			foreach($share_array as $s){
 				$content = '<i class="social-ico-'.$s.'"></i>';
 				if($showNames)
@@ -232,6 +231,11 @@ class Traction {
 					$shareme = $shareinfo->$s();
 					echo '<li class="social-list-item">'.$shareme.'</li>';
 				}
+			}
+			if($a['fblike']) {
+				$shareinfo = new TractionShare(get_permalink(),get_the_title(),'',$a['twitter_profile']);
+				$shareme = $shareinfo->fblike();
+				echo '<li class="social-list-item">' . $shareme . '</li>';
 			}
 		}
 	}

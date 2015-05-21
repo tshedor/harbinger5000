@@ -26,6 +26,8 @@
       <?php the_category(); ?>
     </div>
 
+    <?php social_single(); ?>
+
     <?php comments_template(); ?>
 
   </div>

@@ -3,6 +3,7 @@
   margin: 10px 0;
   &-content {
     padding: 10px;
+    word-break: break-all;
   }
   h4 {
     @include sub;
@@ -20,11 +21,22 @@
 .meta {
   margin-bottom: 5px;
   a {
-    color: #fff;
+    color: $white;
     display: block;
+    @include hover($black);
+    &:after {
+      content: ',';
+    }
   }
   li {
     display: inline-block;
+    &:last-child {
+      a {
+        &:after {
+          content: '';
+        }
+      }
+    }
   }
   .post-categories {
     @include transition(background 0.3s);
@@ -33,14 +45,7 @@
     background: $blue;
     padding: 4px 8px;
     position: relative;
-    &:hover {
-      background: $black;
-      &:after {
-        border-color: $black transparent transparent transparent;
-      }
-    }
     &:after {
-      @include transition(border-color 0.3s);
       content: '';
       width: 0;
       height: 0;

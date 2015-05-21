@@ -13,6 +13,7 @@
       case 'full-width' :
         get_template_part('shared/single/full-width');
 
+      break;
       default :
         get_template_part('shared/single/basic-right');
 

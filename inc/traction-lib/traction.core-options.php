@@ -147,6 +147,7 @@ array(
 	'std'	=> 'plain',
 	'class' => 'half',
 	'type'	=> 'radio',
+	'def'	=>	'plain',
 	'options' => array(
 		array(
 			'name' => 'Plain',

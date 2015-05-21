@@ -1,6 +1,8 @@
-<div class="js-body-image body-image" style="background-image: url('<?php Traction::get_image('full', array('just_url' => true)); ?>');">
-  <h1><?php the_title(); ?></h1>
-  <h3><?php the_author_posts_link(); ?></h3>
+<div class="js-body-image body-image" style="background-image: url('<?php echo Traction::get_image('full', array('just_url' => true)); ?>');">
+  <div class="post-titles">
+    <h1><?php the_title(); ?></h1>
+    <h3>By <?php the_author_posts_link(); ?></h3>
+  </div>
 </div>
 <div class="post-layout--full">
   <div <?php post_class('entry'); ?>>

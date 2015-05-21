@@ -382,48 +382,6 @@ input[type="range"] {
     height: 14px; }
 
 /*!
- * Isotope PACKAGED v2.0.0
- * Filter & sort magical layouts
- * http://isotope.metafizzy.co
- * MIT Licensed
- */
-.isotope-item {
-  z-index: 2; }
-
-.isotope-hidden.isotope-item {
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0 !important; }
-
-.isotope, .isotope .isotope-item {
-  -moz-transition-duration: 0.8s;
-  -o-transition-duration: 0.8s;
-  -webkit-transition-duration: 0.8s;
-  transition-duration: 0.8s; }
-
-.isotope {
-  -moz-transition-property: height, width;
-  -o-transition-property: height, width;
-  -webkit-transition-property: height, width;
-  transition-property: height, width; }
-  .isotope .isotope-item {
-    -webkit-transition-property: -webkit-transform, opacity;
-    -moz-transition-property: -moz-transform, opacity;
-    -ms-transition-property: -ms-transform, opacity;
-    -o-transition-property: top, left, opacity;
-    transition-property: transform, opacity; }
-  .isotope.no-transition, .isotope.no-transition .isotope-item, .isotope .isotope-item.no-transition {
-    -moz-transition-duration: 0s;
-    -o-transition-duration: 0s;
-    -webkit-transition-duration: 0s;
-    transition-duration: 0s; }
-  .isotope.infinite-scrolling {
-    -moz-transition: none 1s;
-    -o-transition: none 1s;
-    -webkit-transition: none 1s;
-    transition: none 1s; }
-
-/*!
  * jQuery Superfish Menu Plugin
  * Copyright (c) 2013 Joel Birch
  *
@@ -575,13 +533,16 @@ h3 {
   .slide.-micro {
     display: inline-block; }
   .slide .slide-cover {
+    font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
     position: absolute;
     bottom: 0;
     width: 100%;
     left: 0;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(35, 31, 32, 0.8);
     padding: 15px 20px;
-    color: #fff; }
+    color: #fff;
+    padding: 40px 0 0; }
   .slide-title {
     -moz-transition: bottom 0.2s;
     -o-transition: bottom 0.2s;
@@ -636,7 +597,8 @@ h3 {
   background: #E4E4E6;
   margin: 10px 0; }
   .tease-content {
-    padding: 10px; }
+    padding: 10px;
+    word-break: break-all; }
   .tease h4 {
     font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 600;
@@ -653,8 +615,14 @@ h3 {
   .meta a {
     color: #fff;
     display: block; }
+    .meta a:hover {
+      color: #231F20; }
+    .meta a:after {
+      content: ','; }
   .meta li {
     display: inline-block; }
+    .meta li:last-child a:after {
+      content: ''; }
   .meta .post-categories {
     -moz-transition: background 0.3s;
     -o-transition: background 0.3s;
@@ -665,15 +633,7 @@ h3 {
     background: #3C7CF6;
     padding: 4px 8px;
     position: relative; }
-    .meta .post-categories:hover {
-      background: #231F20; }
-      .meta .post-categories:hover:after {
-        border-color: #231F20 transparent transparent transparent; }
     .meta .post-categories:after {
-      -moz-transition: border-color 0.3s;
-      -o-transition: border-color 0.3s;
-      -webkit-transition: border-color 0.3s;
-      transition: border-color 0.3s;
       content: '';
       width: 0;
       height: 0;
@@ -805,8 +765,58 @@ aside {
     font-size: 1.125rem; }
 
 .single-post .meta {
-  margin: 20px 0 30px; }
+  margin: 20px 0 10px; }
 
 .entry {
   font-family: "Noto Serif", Georgia, serif;
   font-weight: 400; }
+
+.body-image {
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+  position: relative;
+  margin-top: 30px; }
+  .body-image h1,
+  .body-image h3 {
+    background: rgba(35, 31, 32, 0.8);
+    color: #fff; }
+  .body-image h1 {
+    margin: 0;
+    padding: 20px 0 10px; }
+  .body-image h3 {
+    margin: 0;
+    padding-bottom: 20px; }
+    .body-image h3 a {
+      color: #fff; }
+      .body-image h3 a:hover {
+        color: #3C7CF6; }
+  .body-image .post-titles {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; }
+
+.post-layout--full p {
+  max-width: 740px;
+  margin: 0 auto 20px;
+  display: block; }
+.post-layout--full .meta {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 740px; }
+
+.social-single {
+  list-style: none; }
+  .social-single li {
+    display: inline-block;
+    font-size: 16px;
+    vertical-align: middle; }
+    .social-single li a {
+      display: block;
+      padding: 0 4px;
+      font-size: 20px; }
+    .social-single li iframe {
+      margin: 10px 4px 0; }

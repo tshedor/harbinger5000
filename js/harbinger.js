@@ -29,11 +29,24 @@ var HB = {
   ui: {
     init: function() {
       this._slideUp();
+      this._slider();
     },
 
     _slideUp: function() {
       $('.js-slide-title').hover(function() {
         $(this).toggleClass('active');
+      });
+    },
+
+    _slider: function() {
+      $('.bx-slider').bxSlider({
+        minSlides: 8,
+        maxSlides: 10,
+        slideWidth: 150,
+        slideMargin: 10,
+        pager: false,
+        nextText: '',
+        prevText: ''
       });
     }
 

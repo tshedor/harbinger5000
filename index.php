@@ -1,4 +1,4 @@
-<?php get_header(); global $a; ?>
+<?php get_header(); global $a; global $query_string; ?>
 
 <?php if(is_singular()) {
   if(have_posts()) : while(have_posts()) : the_post();
@@ -8,17 +8,36 @@
   endif;
 } else {
   if(have_posts()) :
-    get_template_part('shared/archive-title'); ?>
+    get_template_part('shared/archive-title');
+    $featured = ''; ?>
 
+    <section>
+      <div class="row clearfix">
+        <?php query_posts($query_string . '&showposts=4'); ?>
+          <div class="large-6 columns">
+            <?php $i = 0; while(have_posts()) : the_post();
+              switch($i) {
+                case 0:
+                case 3:
+                  Harbinger::template('slide-over', array('image_size' => 'archive_hero') );
+                break;
+                case 1:
+                  Harbinger::template('slide-over', array('image_size' => 'skinny_hero') );
+                  echo '</div><div class="large-6 columns">';
+                break;
+                case 2:
+                  Harbinger::template('slide-over', array('image_size' => 'skinny_hero') );
+                break;
+              }
+            $i++;
+            $featured .= get_the_ID(); endwhile; wp_reset_query(); ?>
+          </div>
+      </div>
+    </section>
     <section class="row clearfix">
       <div class="large-8 columns">
-        <?php
-          Harbinger::template('slide-over',
-            array('image_size' => 'archive_hero')
-          ); ?>
-
         <h2>Recent</h2>
-        <?php while(have_posts()) : the_post();
+        <?php query_posts($query_string . '&offset=4'); while(have_posts()) : the_post();
           get_template_part('loop', 'tease');
         endwhile; ?>
         <div class="clearfix page-navigation">

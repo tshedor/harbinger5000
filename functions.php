@@ -10,7 +10,8 @@ if ( function_exists( 'add_theme_support' ) ) {
 }
 
 function custom_scripts(){
-	wp_enqueue_script('harbinger', get_template_directory_uri() . '/js/harbinger.js', array('jquery') );
+  wp_enqueue_script('bxslider', get_template_directory_uri() . '/js/jquery.bxslider.js', array('jquery') );
+	wp_enqueue_script('harbinger', get_template_directory_uri() . '/js/harbinger.js', array('jquery', 'bxslider') );
 }
 
 add_action( 'wp_enqueue_scripts', 'custom_scripts', 0);
