@@ -90,7 +90,8 @@ class Traction {
 			'attr' => NULL,
 			'just_url' => false,
 			'class' => '',
-			'link_to_post' => true
+			'link_to_post' => true,
+			'image_present' => false
 		);
 
 		$args = wp_parse_args( $args, $defaults );
@@ -107,6 +108,10 @@ class Traction {
 			if(!empty($args['attr']))
 				$gti_settings = array_merge($gti_settings, $args['attr']);
 
+			if($args['image_present']) {
+				$gti = get_the_image(array('format' => 'array'));
+				return isset($gti['src']);
+			}
 
 			if($args['just_url']){
 

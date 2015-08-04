@@ -34,15 +34,21 @@
           </div>
       </div>
     </section>
+    <?php query_posts($query_string . '&offset=4');
+    global $wp_query; ?>
+
     <section class="row clearfix">
       <div class="large-8 columns">
-        <h2>Recent</h2>
-        <?php query_posts($query_string . '&offset=4'); while(have_posts()) : the_post();
-          get_template_part('loop', 'tease');
-        endwhile; ?>
-        <div class="clearfix page-navigation">
-          <?php Traction::pagination(); ?>
-        </div>
+
+        <?php if($wp_query->found_posts > 0) : ?>
+          <h2>Recent</h2>
+          <?php while(have_posts()) : the_post();
+            get_template_part('loop', 'tease');
+          endwhile; ?>
+          <div class="clearfix page-navigation">
+            <?php Traction::pagination(); ?>
+          </div>
+        <?php endif; ?>
       </div>
 
       <div class="large-4 columns">

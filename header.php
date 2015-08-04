@@ -16,7 +16,7 @@
   <div class="row clearfix">
     <div class="large-12 columns">
       <a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); echo ' | '; bloginfo('description'); ?>" class="logo-wrapper">
-        <img src="<?php echo $a['masthead_graphic']; ?>" alt="<?php bloginfo('name'); ?>" class="masthead-graphic" />
+        <img src="<?php echo $a['masthead_graphic']; ?>" alt="<?php bloginfo('name'); ?>" class="masthead-graphic hide-for-small" />
         <img src="<?php echo $a['logo']; ?>" alt="<?php bloginfo('name'); ?>" class="logo" />
       </a>
     </div>
@@ -25,7 +25,7 @@
     <div class="large-12 columns">
 
       <div class="header-menu">
-        <div class="row clearfix header-menu collapse">
+        <div class="row clearfix hide-for-small desktop-menu collapse">
           <div class="large-11 columns">
             <?php wp_nav_menu(array( 'theme_location' => 'primary_menu', 'container' => '', 'items_wrap' => '<ul class="link-list sf-menu menu">%3$s</ul>', )); ?>
           </div>
@@ -33,6 +33,11 @@
             <i class="icon-search search-trigger js-search-trigger"></i>
           </div>
           <?php get_search_form(); ?>
+        </div>
+
+        <div class="show-for-small clearfix mobile-menu sm-padding">
+          <a href="#" id="activateMobile"><i class="icon-reorder"></i></a>
+          <?php wp_nav_menu(array( 'theme_location' => 'mobile_menu', 'container' => '', 'items_wrap' => '<ul id="mobileMenu" class="clearfix link-list">%3$s</ul>', )); ?>
         </div>
       </div>
     </div>

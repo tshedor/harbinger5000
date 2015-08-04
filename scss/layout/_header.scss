@@ -22,6 +22,12 @@
   }
 }
 
+.mobile-menu {
+  a {
+    display: block;
+  }
+}
+
 .masthead-graphic,
 .logo {
   display: inline-block;
@@ -33,6 +39,9 @@
 }
 .logo {
   width: 70%;
+  @include bp(medium-down) {
+    width: 100%;
+  }
 }
 .alert {
   @include display;

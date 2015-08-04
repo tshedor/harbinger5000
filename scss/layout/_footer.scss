@@ -4,6 +4,7 @@
   text-align: left;
   padding: 20px 0;
   margin-top: 20px;
+  font-size: 14px;
   a {
     color: $white;
     &:hover {
@@ -32,6 +33,13 @@
           color: $white;
         }
       }
+    }
+  }
+  .social-icons {
+    font-size: 18px;
+    a {
+      display: inline-block;
+      margin: 0 0 0 5px;
     }
   }
 }

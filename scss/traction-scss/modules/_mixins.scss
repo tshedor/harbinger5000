@@ -327,3 +327,16 @@ $placeholders: '-webkit-input-placeholder',
     }
   }
 }
+@mixin bp($name, $breakpoint_list: $breakpoints) {
+  // If the key exists in the map
+  @if map-has-key($breakpoint_list, $name) {
+    // Prints a media query based on the value
+    @media #{inspect(map-get($breakpoint_list, $name))} {
+      @content;
+    }
+  } @else {
+    // If the key doesn't exist in the map
+    @warn 'Unfortunately, no value with #{$name} could be retrieved from `$breakpoint`. '
+        + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}

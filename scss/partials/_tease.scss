@@ -27,6 +27,9 @@
     &:after {
       content: ',';
     }
+    &:hover {
+      color: $white;
+    }
   }
   li {
     display: inline-block;

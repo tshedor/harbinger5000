@@ -20,6 +20,13 @@
 
 .entry {
   @include body_copy;
+  ul {
+    list-style: disc;
+    padding-left: 17px;
+  }
+  ol {
+    padding-left: 17px;
+  }
 }
 
 .body-image {
@@ -55,11 +62,40 @@
   }
 }
 .post-layout--full {
-  p {
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  table,
+  dl,
+  ul,
+  ol,
+  pre,
+  address,
+  blockquote {
     max-width: 740px;
-    margin: 0 auto 20px;
+    margin: 35px auto 0;
     display: block;
   }
+
+  ul ul,
+  ol ol {
+    margin-top: 0;
+  }
+
+  blockquote {
+    padding: 0;
+    border-left: 0;
+    font-style: italic;
+    text-align: center;
+    cite {
+      font-style: normal;
+    }
+  }
+
   .meta {
     margin-left: auto;
     margin-right: auto;
