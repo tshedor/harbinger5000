@@ -42,7 +42,35 @@ class Traction {
 	* @param int $post_count how many posts to return
 	*/
 	static function queryPopular($post_count = 5) {
-		$query = new WP_Query(array('meta_key' => 'post_views_count', 'orderby' => 'meta_value_num', 'order' => 'DESC', 'showposts' => $post_count, 'w' => date('W'), 'year' => date('Y')));
+		$popular_query = array(
+			'meta_key' => 'post_views_count',
+			'orderby' => 'meta_value_num',
+			'order' => 'DESC',
+			'showposts' => $post_count,
+			'w' => date('W'),
+			'year' => date('Y')
+		);
+		$query = new WP_Query($popular_query);
+
+		// If the week is zero, we get the month
+		if($query->post_count == 0) {
+			unset($popular_query['w']);
+			$popular_query['monthnum'] = date('n');
+
+			$query = new WP_Query($popular_query);
+
+			// If month is zero, let's get the whole year then
+			if ($query->post_count == 0) {
+				unset($popular_query['monthnum']);
+				$query = new WP_Query($popular_query);
+
+				// If there's nothing this year, show the most recent requested count
+				if($query->post_count == 0) {
+					$query = new WP_Query(array('showposts' => $post_count));
+				}
+			}
+		}
+
 		return $query;
 	}
 

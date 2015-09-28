@@ -1,8 +1,8 @@
 <?php get_header();
 global $a;
-global $wp_query; ?>
+global $wp_query;
 
-<?php if(is_singular()) {
+if(is_singular()) {
   if(have_posts()) : while(have_posts()) : the_post();
     get_template_part('loop', 'single');
   endwhile; else :
@@ -16,18 +16,18 @@ global $wp_query; ?>
       while(have_posts()) : the_post();
         switch($i) {
           case 0:
-            echo '<section><div class="row clearfix"><div class="large-6 columns">'; // create the hero section. this is really jank i know, but query_posts with an offset and pagination is such a rabbit hole the codex has a dedicated page to it and this is a better solution.
-            Harbinger::template('slide-over', array('image_size' => 'archive_hero') );
+            echo '<section><div class="row clearfix"><div class="large-8 columns">'; // create the hero section. this is really jank i know, but query_posts with an offset and pagination is such a rabbit hole the codex has a dedicated page to it and this is a better solution.
+            Harbinger::template('static-title', array('image_size' => 'hero') );
           break;
           case 1:
-            Harbinger::template('slide-over', array('image_size' => 'skinny_hero') );
-            echo '</div><div class="large-6 columns">';
+            echo '</div><div class="large-4 columns">';
+            Harbinger::template('slide-over', array('wrapper' => 'featured--sidekick', 'image_size' => 'hero_sidekick') );
           break;
           case 2:
-            Harbinger::template('slide-over', array('image_size' => 'skinny_hero') );
+            Harbinger::template('slide-over', array('wrapper' => 'featured--sidekick', 'image_size' => 'hero_sidekick') );
           break;
           case 3:
-            Harbinger::template('slide-over', array('image_size' => 'archive_hero') );
+            Harbinger::template('slide-over', array('wrapper' => 'featured--sidekick', 'image_size' => 'hero_sidekick') );
             echo '</div></div></section>'; // end the section created in 0
             echo '<section class="row clearfix"><div class="large-8 columns"><h2>Recent</h2>';
           default :

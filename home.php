@@ -41,6 +41,17 @@ global $a;
         </h4>
       <?php endwhile; endif; wp_reset_postdata(); ?>
     </aside>
+
+    <h2>Sponsors</h2>
+    <?php
+    $q23 = new WP_Query(array('showposts' => 1, 'post_type' => 'sponsor'));
+    if($q23->have_posts()) : while($q23->have_posts()) : $q23->the_post(); ?>
+
+      <a href="<?php echo get_post_meta($post->ID, 'sponsor_url', true); ?>" title="<?php the_title(); ?>" target="_blank">
+        <?php Traction::get_image('large', array('link_to_post' => false)); ?>
+      </a>
+
+    <?php endwhile; endif; wp_reset_postdata(); ?>
   </div>
 
   <div class="large-8 medium-6 columns">
@@ -126,10 +137,10 @@ global $a;
   <div class="large-4 medium-4 columns">
     <h2>Sponsors</h2>
     <?php
-    $q6 = new WP_Query(array('showposts' => 1, 'post_type' => 'sponsor'));
+    $q6 = new WP_Query(array('showposts' => 1, 'post_type' => 'sponsor', 'offset' => 1));
     if($q6->have_posts()) : while($q6->have_posts()) : $q6->the_post(); ?>
 
-      <a href="<?php echo get_post_meta($post->ID, 'sponsor_url', true); ?>" title="<?php the_title(); ?>">
+      <a href="<?php echo get_post_meta($post->ID, 'sponsor_url', true); ?>" title="<?php the_title(); ?>" target="_blank">
         <?php Traction::get_image('large', array('link_to_post' => false)); ?>
       </a>
 
