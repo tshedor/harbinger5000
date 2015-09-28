@@ -16,7 +16,7 @@ if(is_singular()) {
       while(have_posts()) : the_post();
         switch($i) {
           case 0:
-            echo '<section><div class="row clearfix"><div class="large-8 columns">'; // create the hero section. this is really jank i know, but query_posts with an offset and pagination is such a rabbit hole the codex has a dedicated page to it and this is a better solution.
+            echo '<section><div class="row clearfix hero-wrapper"><div class="large-8 columns">'; // create the hero section. this is really jank i know, but query_posts with an offset and pagination is such a rabbit hole the codex has a dedicated page to it and this is a better solution.
             Harbinger::template('static-title', array('image_size' => 'hero') );
           break;
           case 1:
