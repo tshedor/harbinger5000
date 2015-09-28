@@ -740,8 +740,7 @@ a:focus {
   background: #E4E4E6;
   margin: 10px 0; }
   .tease-content {
-    padding: 10px;
-    word-break: break-all; }
+    padding: 10px; }
   .tease h4 {
     font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 600;
