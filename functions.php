@@ -14,6 +14,15 @@ function custom_scripts(){
 	wp_enqueue_script('harbinger', get_template_directory_uri() . '/js/harbinger.js', array('jquery', 'bxslider') );
 }
 
+// If Coauthors Plus is installed, use that
+function harbinger_authors() {
+  if( function_exists('coauthors_posts_links') ) {
+    coauthors_posts_links();
+  } else {
+    the_author_posts_link();
+  }
+}
+
 add_action( 'wp_enqueue_scripts', 'custom_scripts', 0);
 
 $themename = "Harbinger 5000";

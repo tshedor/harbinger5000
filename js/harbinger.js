@@ -1,7 +1,5 @@
 'use strict';
 
-var $ = jQuery.noConflict();
-
 var HB = {
   init: function(){
     this.nav.init();
@@ -14,12 +12,12 @@ var HB = {
     },
 
     _header: function() {
-      $('.js-search-trigger').click(function() {
-        var $form = $('#searchform');
-        $form.fadeToggle();
+      jQuery('.js-search-trigger').click(function() {
+        var jQueryform = jQuery('#searchform');
+        jQueryform.fadeToggle();
 
-        if($form.is(':visible')) {
-          $form.find('input').focus();
+        if(jQueryform.is(':visible')) {
+          jQueryform.find('input').focus();
         }
       });
     }
@@ -33,13 +31,13 @@ var HB = {
     },
 
     _slideUp: function() {
-      $('.js-slide-title').hover(function() {
-        $(this).toggleClass('active');
+      jQuery('.js-slide-title').hover(function() {
+        jQuery(this).toggleClass('active');
       });
     },
 
     _slider: function() {
-      $('.bx-slider').bxSlider({
+      jQuery('.bx-slider').bxSlider({
         minSlides: 8,
         maxSlides: 10,
         slideWidth: 150,
@@ -54,6 +52,6 @@ var HB = {
 
 };
 
-$(window).load(function() {
+jQuery(window).load(function() {
   HB.init();
 });

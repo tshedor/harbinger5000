@@ -7,5 +7,22 @@
   }
 }
 .featured-strip {
+  @include clearfix;
   margin-top: 15px;
+  .slide.-micro {
+    display: block;
+    float: left;
+    width: calc(20% - 10px);
+    margin-right: 10px;
+  }
+}
+
+.featured--sidekick {
+  a {
+    margin-bottom: 13px;
+  }
+  .slide-cover {
+    top: 0;
+    height: calc(100% - 13px);
+  }
 }

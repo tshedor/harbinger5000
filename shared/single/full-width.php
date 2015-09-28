@@ -1,7 +1,7 @@
 <div class="js-body-image body-image" style="background-image: url('<?php echo Traction::get_image('full', array('just_url' => true)); ?>');">
   <div class="post-titles">
     <h1><?php the_title(); ?></h1>
-    <h3>By <?php the_author_posts_link(); ?></h3>
+    <h3>By <?php harbinger_authors(); ?></h3>
   </div>
 </div>
 <div class="post-layout--full">

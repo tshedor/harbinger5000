@@ -3,6 +3,7 @@ $broadcast_query = new WP_Query( array('showposts' => 1, 'cat' => $a['broadcast_
 
 if($broadcast_query->have_posts()) :
   while($broadcast_query->have_posts()) :
+    $broadcast_query->the_post();
     $pc = get_post_custom(); ?>
 
     <div class="alert info">

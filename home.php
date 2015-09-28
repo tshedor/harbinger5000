@@ -90,7 +90,7 @@ global $a;
   </div>
   <div class="large-6 medium-6 columns">
     <h2>Latest Issue</h2>
-    <?php echo $a['home_latest_issue']; ?>
+    <?php echo stripslashes( $a['home_latest_issue'] ); ?>
   </div>
 </section>
 
@@ -107,14 +107,14 @@ global $a;
         <?php
         $q5 = new WP_Query(array('showposts' => 1, 'cat' => $a['broadcast_category']));
         if($q5->have_posts()) : while($q5->have_posts()) : $q5->the_post();
-          Harbinger::template('slide-over',
+          Harbinger::template('static-title',
             array('image_size' => 'hero')
           );
         endwhile; endif; wp_reset_postdata(); ?>
       </div>
       <div class="large-3 columns">
         <?php
-        $q55 = new WP_Query(array('showposts' => 3, 'cat' => $a['broadcast_category'], 'offset' => 1));
+        $q55 = new WP_Query(array('showposts' => 2, 'cat' => $a['broadcast_category'], 'offset' => 1));
         if($q55->have_posts()) : while($q55->have_posts()) : $q55->the_post();
           Harbinger::template('static-title',
             array('image_size' => 'thumbnail')

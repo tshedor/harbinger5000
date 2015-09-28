@@ -20,9 +20,9 @@
         break;
     }
 
-    Traction::setPostViews(get_the_ID());
-
   else :
     get_template_part('shared/single/basic-right');
 
   endif;
+
+  Traction::setPostViews(get_the_ID());

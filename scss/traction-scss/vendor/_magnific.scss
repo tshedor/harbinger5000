@@ -60,10 +60,6 @@
 	}
 }
 
-.mfp-img {
-	background:white;
-}
-
 button.mfp-arrow {
 	&:hover {
 		@include box-shadow(none);
@@ -78,13 +74,14 @@ button.mfp-arrow {
 	}
 }
 .mfp-arrow-left:before, .mfp-arrow-left .mfp-b{
-	border-right:none;
+	border-right: 0 !important;
 }
 .mfp-arrow-right:before, .mfp-arrow-right .mfp-b {
-	border-left:none;
+	border-left: 0 !important;
 }
+
 img.mfp-img {
-	padding:0;
+	padding: 20px 0;
 	@include border-radius(2px);
 }
 .mfp-close {

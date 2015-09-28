@@ -4,7 +4,7 @@
 
     <header class="single-header">
       <h1><?php the_title(); ?></h1>
-      <div class="byline">By <?php the_author_posts_link(); ?></div>
+      <div class="byline">By <?php harbinger_authors(); ?></div>
       <div class="dateline">Posted <?php the_date(); ?></div>
     </header>
 

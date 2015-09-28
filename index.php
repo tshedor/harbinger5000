@@ -1,4 +1,6 @@
-<?php get_header(); global $a; global $query_string; ?>
+<?php get_header();
+global $a;
+global $wp_query; ?>
 
 <?php if(is_singular()) {
   if(have_posts()) : while(have_posts()) : the_post();
@@ -9,46 +11,40 @@
 } else {
   if(have_posts()) :
     get_template_part('shared/archive-title');
-    $featured = ''; ?>
-
-    <section>
-      <div class="row clearfix">
-        <?php query_posts($query_string . '&showposts=4'); ?>
-          <div class="large-6 columns">
-            <?php $i = 0; while(have_posts()) : the_post();
-              switch($i) {
-                case 0:
-                case 3:
-                  Harbinger::template('slide-over', array('image_size' => 'archive_hero') );
-                break;
-                case 1:
-                  Harbinger::template('slide-over', array('image_size' => 'skinny_hero') );
-                  echo '</div><div class="large-6 columns">';
-                break;
-                case 2:
-                  Harbinger::template('slide-over', array('image_size' => 'skinny_hero') );
-                break;
-              }
-            $i++;
-            $featured .= get_the_ID(); endwhile; wp_reset_query(); ?>
-          </div>
-      </div>
-    </section>
-    <?php query_posts($query_string . '&offset=4');
-    global $wp_query; ?>
-
-    <section class="row clearfix">
-      <div class="large-8 columns">
-
-        <?php if($wp_query->found_posts > 0) : ?>
-          <h2>Recent</h2>
-          <?php while(have_posts()) : the_post();
+    if( $wp_query->post_count > 4 ) {
+      $i = 0;
+      while(have_posts()) : the_post();
+        switch($i) {
+          case 0:
+            echo '<section><div class="row clearfix"><div class="large-6 columns">'; // create the hero section. this is really jank i know, but query_posts with an offset and pagination is such a rabbit hole the codex has a dedicated page to it and this is a better solution.
+            Harbinger::template('slide-over', array('image_size' => 'archive_hero') );
+          break;
+          case 1:
+            Harbinger::template('slide-over', array('image_size' => 'skinny_hero') );
+            echo '</div><div class="large-6 columns">';
+          break;
+          case 2:
+            Harbinger::template('slide-over', array('image_size' => 'skinny_hero') );
+          break;
+          case 3:
+            Harbinger::template('slide-over', array('image_size' => 'archive_hero') );
+            echo '</div></div></section>'; // end the section created in 0
+            echo '<section class="row clearfix"><div class="large-8 columns"><h2>Recent</h2>';
+          default :
             get_template_part('loop', 'tease');
-          endwhile; ?>
-          <div class="clearfix page-navigation">
-            <?php Traction::pagination(); ?>
-          </div>
-        <?php endif; ?>
+          break;
+        }
+        $i++;
+      endwhile;
+    } else {
+      echo '<section class="row clearfix"><div class="large-8 columns"><h2>Recent</h2>';
+      while(have_posts()) : the_post();
+        get_template_part('loop', 'tease');
+      endwhile;
+    } ?>
+        <div class="clearfix page-navigation">
+          <?php Traction::pagination(); ?>
+        </div>
       </div>
 
       <div class="large-4 columns">
