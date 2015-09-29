@@ -41,6 +41,9 @@ global $a;
         </h4>
       <?php endwhile; endif; wp_reset_postdata(); ?>
     </aside>
+
+    <h2><?php echo $a['home_subpopular_embed_title']; ?></h2>
+    <?php echo stripslashes( $a['home_subpopular_embed'] ); ?>
   </div>
 
   <div class="large-8 medium-6 columns">

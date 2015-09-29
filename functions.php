@@ -78,6 +78,19 @@ $homeopts = array(
     'type'  => 'categories',
   ),
   array(
+    'name'  => 'Subpopular Embed Box Title',
+    'desc'  => 'Appears beneath "Popular"',
+    'std'   => 'Scoreboard',
+    'id'    => 'home_subpopular_embed_title',
+    'type'  => 'text',
+  ),
+  array(
+    'name'  => 'Subpopular Embed Code',
+    'desc'  => 'Raw embed code that appears beneath "Popular"',
+    'id'    => 'home_subpopular_embed',
+    'type'  => 'textareacode',
+  ),
+  array(
     'name'  => 'Supplement Box',
     'desc'  => 'The box next to popular after the hero. Displays 5 of the most recent posts (should be Videos)',
     'id'    => 'home_supplement_category',
