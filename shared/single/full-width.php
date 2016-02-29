@@ -7,12 +7,13 @@
 <div class="post-layout--full">
   <div <?php post_class('entry'); ?>>
     <?php the_content(); ?>
+
+    <ul class="social-single">
+      <?php Traction::social_single(false); ?>
+    </ul>
   </div>
+
   <div class="meta">
     <?php the_category(); ?>
   </div>
-
-  <ul class="social-single">
-    <?php Traction::social_single(false); ?>
-  </ul>
 </div>
