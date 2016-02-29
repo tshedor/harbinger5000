@@ -77,13 +77,12 @@ class Traction {
 	/**
 	* Determine if current view (usually archive) is paged
 	* @uses $_GET['paged']
-	* @return string current paginated page
+	* @print string current paginated page
 	*/
 	static function if_paged(){
-		if(isset($_GET['paged']) && !empty($_GET['paged'])) {
-			return $_GET['paged'];
-		} else {
-			return false;
+		$paged = get_query_var('paged', 0);
+		if($paged !== 0) {
+			echo " ($paged)";
 		}
 	}
 

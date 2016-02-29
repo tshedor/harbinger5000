@@ -8,7 +8,7 @@
     <div class="large-8 medium-8 columns">
       <div class="tease-content">
         <div class="meta">
-          <?php the_category(); ?>
+          <?php the_date('M j, Y'); ?>
         </div>
         <div class="byline">By <?php harbinger_authors(); ?></div>
         <h4>

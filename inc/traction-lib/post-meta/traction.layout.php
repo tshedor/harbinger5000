@@ -5,7 +5,7 @@ array(
 	'desc'	=> '',
 	'id'	=> 'post_layout',
 	'std'	=> 'default',
-	'def'	=> 'basic-right',
+	'def'	=> 'full-width',
 	'type'	=> 'radio',
 	'options' => array(
 		array(

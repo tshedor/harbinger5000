@@ -6,3 +6,16 @@
     text-align: center;
   }
 }
+
+.author-bio {
+  @include body;
+}
+
+.author-hero {
+  img {
+    @include bp(medium-down) {
+      margin: 0 auto 25px;
+      display: block;
+    }
+  }
+}

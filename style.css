@@ -895,6 +895,15 @@ aside {
   border-bottom: 2px solid #231F20;
   text-align: center; }
 
+.author-bio {
+  font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400; }
+
+@media (max-width: 768px) {
+  .author-hero img {
+    margin: 0 auto 25px;
+    display: block; } }
+
 .hero-wrapper {
   font-family: "bebas_neuebold", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
@@ -976,20 +985,7 @@ aside {
     left: 0;
     width: 100%; }
 
-.post-layout--full p,
-.post-layout--full h1,
-.post-layout--full h2,
-.post-layout--full h3,
-.post-layout--full h4,
-.post-layout--full h5,
-.post-layout--full h6,
-.post-layout--full table,
-.post-layout--full dl,
-.post-layout--full ul,
-.post-layout--full ol,
-.post-layout--full pre,
-.post-layout--full address,
-.post-layout--full blockquote {
+.post-layout--full .entry {
   max-width: 740px;
   margin: 35px auto 0;
   display: block; }

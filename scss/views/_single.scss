@@ -62,20 +62,7 @@
   }
 }
 .post-layout--full {
-  p,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  table,
-  dl,
-  ul,
-  ol,
-  pre,
-  address,
-  blockquote {
+  .entry {
     max-width: 740px;
     margin: 35px auto 0;
     display: block;
@@ -119,3 +106,4 @@
     }
   }
 }
+
