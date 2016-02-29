@@ -11,9 +11,9 @@
     <ul class="social-single">
       <?php Traction::social_single(false); ?>
     </ul>
-  </div>
 
-  <div class="meta">
-    <?php the_category(); ?>
+    <div class="meta">
+      <?php the_category(); ?>
+    </div>
   </div>
 </div>
