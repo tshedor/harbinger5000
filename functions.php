@@ -3,10 +3,10 @@ include_once(get_template_directory().'/inc/traction-lib/traction.core-options.p
 
 if ( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'post-thumbnails' );
-  add_image_size( 'hero', 930, 500, true );
+  add_image_size( 'hero1', 930, 523.125, true );
   add_image_size( 'archive_hero', 650, 450, true );
-  add_image_size( 'skinny_hero', 650, 150, true );
-  add_image_size( 'hero_sidekick', 360, 125, true );
+  add_image_size( 'skinny_hero1', 650, 240, true );
+  add_image_size( 'hero_side', 360, 202.5, true );
 }
 
 function custom_scripts(){
@@ -23,9 +23,10 @@ function harbinger_authors() {
   }
 }
 
+
 add_action( 'wp_enqueue_scripts', 'custom_scripts', 0);
 
-$themename = "Harbinger 5000";
+$themename = "Harbinger 5001";
 
 $breaking_opts = array(
   array(
@@ -59,6 +60,14 @@ $breaking_opts = array(
     'std'   => get_template_directory_uri() . '/img/masthead-graphic.png',
     'type'  => 'media',
   ),
+
+  array(
+    'name'  => 'Masthead Link',
+    'desc'  => 'The URL for the masthead graphic',
+    'id'    => 'masthead_link',
+    'std'   => 'http://smeharbinger.net/category/live-broadcasts/',
+    'type'  => 'text',
+  ),
   array(
     'type'  => 'endarray',
     'id'    => 'endarray'
@@ -73,46 +82,58 @@ $homeopts = array(
   ),
   array(
     'name'  => 'Hero',
-    'desc'  => 'First box on the home page. Displays 4 of the most recent posts',
+    'desc'  => 'First box on the home page. Displays 3 of the most recent posts',
     'id'    => 'home_hero',
     'type'  => 'categories',
   ),
   array(
-    'name'  => 'Subpopular Embed Box Title',
-    'desc'  => 'Appears beneath "Popular"',
-    'std'   => 'Scoreboard',
-    'id'    => 'home_subpopular_embed_title',
-    'type'  => 'text',
+    'name'  => 'Column 1, Box 1',
+    'desc'  => 'The first box in the first column',
+    'id'    => 'home_supplement_category',
+    'type'  => 'categories',
   ),
   array(
-    'name'  => 'Subpopular Embed Code',
+    'name'  => 'Column 1, Box 2',
+    'desc'  => 'The second box in the first column',
+    'id'    => 'home_col_1_box_2',
+    'type'  => 'categories',
+  ),
+  array(
+    'name'  => 'Column 1, Box 4',
+    'desc'  => 'The fourth box in the first column',
+    'id'    => 'home_below_fold_category',
+    'type'  => 'categories',
+  ),
+  array(
+    'name'  => 'Column 2, Box 2',
     'desc'  => 'Raw embed code that appears beneath "Popular"',
     'id'    => 'home_subpopular_embed',
     'type'  => 'textareacode',
   ),
   array(
-    'name'  => 'Supplement Box',
-    'desc'  => 'The box next to popular after the hero. Displays 5 of the most recent posts (should be Videos)',
-    'id'    => 'home_supplement_category',
+    'name'  => 'Column 2, Box 3',
+    'desc'  => 'The third box in the second column',
+    'id'    => 'home_col_2_box_3',
     'type'  => 'categories',
   ),
   array(
-    'name'  => 'Supplement Box',
-    'desc'  => 'The box next to popular after the hero. Displays 5 of the most recent posts (should be Videos)',
-    'id'    => 'home_supplement_category',
+    'name'  => 'Column 2, Box 4',
+    'desc'  => 'The fourth box in the second column',
+    'id'    => 'home_col_2_box_4',
     'type'  => 'categories',
   ),
   array(
-    'name'  => 'Latest Issue Embed Code',
-    'desc'  => 'Raw embed code from Issuu',
-    'id'    => 'home_latest_issue',
-    'type'  => 'textareacode',
+    'name'  => 'Column 2, Box 5',
+    'desc'  => 'The fifth box in the second column',
+    'id'    => 'home_col_2_box_5',
+    'type'  => 'categories',
   ),
   array(
-    'name'  => 'Below the Fold Box',
-    'desc'  => 'The box next to latest issue. Displays the most recent posts (should be Homegrown)',
-    'id'    => 'home_below_fold_category',
-    'type'  => 'categories',
+    'name'  => 'Sponsor Count',
+    'desc'  => 'Number of sponsors to display',
+    'id'    => 'home_sponsor_count',
+    'std'   => 3,
+    'type'  => 'number',
   ),
   array(
     'type'  => 'endarray',
