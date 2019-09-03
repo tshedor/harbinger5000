@@ -136,6 +136,12 @@ $homeopts = array(
     'type'  => 'number',
   ),
   array(
+    'name'  => 'Latest Issue Embed Code',
+    'desc'  => 'Raw embed code from Issuu',
+    'id'    => 'home_latest_issue',
+    'type'  => 'textareacode',
+  ),
+  array(
     'type'  => 'endarray',
     'id'    => 'endarray'
   )

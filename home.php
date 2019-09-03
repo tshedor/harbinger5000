@@ -180,19 +180,21 @@ global $a;
 </section>
 
 <section class="row clearfix">
-  <div class="large-12 columns">
+  <div class="large-7 medium-6 columns">
     <h2><span>Sponsors</span></h2>
-    <ul class="evenly-spaced-list">
-    <?php
-    $q6 = new WP_Query(array('showposts' => $a['home_sponsor_count'], 'post_type' => 'sponsor', 'offset' => 1));
-    if($q6->have_posts()) : while($q6->have_posts()) : $q6->the_post(); ?>
-
-      <li><a href="<?php echo get_post_meta($post->ID, 'sponsor_url', true); ?>" title="<?php the_title(); ?>" target="_blank">
-        <?php Traction::get_image('large', array('link_to_post' => false)); ?>
-      </a></li>
-
-    <?php endwhile; endif; wp_reset_postdata(); ?>
+    <ul class="simple-slider bx-slider">
+      <?php $q6 = new WP_Query(array('showposts' => $a['home_sponsor_count'], 'post_type' => 'sponsor', 'offset' => 1));
+      if($q6->have_posts()) : while($q6->have_posts()) : $q6->the_post(); ?>
+        <li>
+          <?php Harbinger::template('slide-over', array('wrapper' => '-micro', 'image_size' => 'large')); ?>
+        </li>
+      <?php endwhile; endif; wp_reset_postdata(); ?>
     </ul>
+  </div>
+
+  <div class="large-5 medium-6 columns">
+    <a href="https://issuu.com/smeharbinger"><h2><span>Our Latest Issue</span></h2></a>
+    <?php echo stripslashes( $a['home_latest_issue'] ); ?>
   </div>
 </section>
 
