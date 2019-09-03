@@ -105,6 +105,24 @@ $homeopts = array(
     'type'  => 'categories',
   ),
   array(
+    'name'  => 'Row 4, Column 1',
+    'desc'  => 'The first column in the fourth row',
+    'id'    => 'home_row_4_column_1',
+    'type'  => 'categories',
+  ),
+  array(
+    'name'  => 'Row 4, Column 2',
+    'desc'  => 'The second column in the fourth row',
+    'id'    => 'home_row_4_column_2',
+    'type'  => 'categories',
+  ),
+  array(
+    'name'  => 'Row 4, Column 3',
+    'desc'  => 'The third column in the fourth row',
+    'id'    => 'home_row_4_column_3',
+    'type'  => 'categories',
+  ),
+  array(
     'name'  => 'Row 5, Column 1',
     'desc'  => 'The first column in the fifth row',
     'id'    => 'home_row_5_column_1',

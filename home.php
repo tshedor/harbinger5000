@@ -98,6 +98,37 @@ global $a;
   </div>
 </section>
 
+
+<section class="row clearfix">
+  <?php for($c = 1; $c < 4; $c++) : ?>
+    <div class="large-4 medium-4 columns">
+      <?php $r4c = get_category($a["home_row_4_column_$c"]); ?>
+      <h2>
+        <a href="<?php echo get_category_link($r4c->cat_ID); ?>" title="<?php echo $r4c->name; ?>">
+          <span><?php echo $r4c->name; ?></span>
+        </a>
+      </h2>
+      <?php
+      $r4q1 = new WP_Query(array('showposts' => 1, 'cat' => $r4c->cat_ID));
+      if($r4q1->have_posts()) : while($r4q1->have_posts()) : $r4q1->the_post();
+        Harbinger::template('static-title',
+          array('image_size' => 'medium')
+        );
+      endwhile; endif; wp_reset_postdata(); ?>
+      <?php
+      $r4q2 = new WP_Query(array('showposts' => 5, 'cat' => $r4c->cat_ID));
+      if($r4q2->have_posts()) : while($r4q2->have_posts()) : $r4q2->the_post(); ?>
+        <h5>
+          <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+            <?php the_title(); ?>
+          </a>
+        </h5>
+        <div class="byline">By <?php harbinger_authors(); ?></div>
+      <?php endwhile; endif; wp_reset_postdata(); ?>
+    </div>
+  <?php endfor; ?>
+</section>
+
 <div class="row clearfix">
   <div class="large-12 columns">
     <?php $r6c = get_category($a['home_row_6']); ?>
