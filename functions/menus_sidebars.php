@@ -16,4 +16,14 @@ register_sidebar(array(
   'after_title' =>  '</span></h3><div class="widget-content">'
 ));
 
+register_sidebar(array(
+  'name'      =>  __( 'Home Row 2 Sidebar' ),
+  'id'      => 'home-row-2-sidebar',
+  'description' =>  __( 'The sidebar appearing on only on the homepage in row 2 column 2' ),
+  'before_widget' =>  '<div class="widget %2$s" id="%1$s">',
+  'after_widget'  =>  '</div></div>',
+  'before_title'  =>  '<h2><span>',
+  'after_title' =>  '</span></h2><div class="widget-content">'
+));
+
 if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar() ) : endif;

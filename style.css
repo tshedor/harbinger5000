@@ -1083,6 +1083,8 @@ aside {
 
 .large-first h5 {
   margin-bottom: 20px; }
+  .large-first h5 + .byline {
+    margin-top: -20px; }
 .large-first h5:last-child {
   margin-bottom: 0; }
 .large-first a {
@@ -1091,3 +1093,10 @@ aside {
 .large-first img {
   max-width: 50px;
   margin-right: 10px; }
+.large-first .byline a {
+  display: inline; }
+.home .byline {
+  font-style: normal;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  margin-bottom: 20px; }
