@@ -44,7 +44,7 @@ global $a;
     </div>
   </div>
   <div class="large-6 medium-6 columns">
-    <a href="https://issuu.com/smeharbinger"><h2><span>Video</span></h2></a>
+  <a href="https://issuu.com/smeharbinger"><h2><span>Video</span></h2></a>
     <?php echo stripslashes( $a['home_latest_video'] ); ?>
   </div>
 </section>
@@ -74,32 +74,6 @@ global $a;
 </section>
 
 <section class="row clearfix">
-  <div class="large-6 medium-6 columns">
-    <?php $r5c1c = get_category($a['home_row_5_column_1']); ?>
-    <h2>
-      <a href="<?php echo get_category_link($r5c1c->cat_ID); ?>" title="<?php echo $r5c1c->name; ?>">
-        <span><?php echo $r5c1c->name; ?></span>
-      </a>
-    </h2>
-    <div class="four-up">
-      <?php
-      $r5c1q = new WP_Query(array('showposts' => 4, 'cat' => $r5c1c->cat_ID));
-      if($r5c1q->have_posts()) : while($r5c1q->have_posts()) : $r5c1q->the_post();
-        Harbinger::template('slide-over',
-          array('image_size' => 'medium')
-        );
-      endwhile; endif; wp_reset_postdata(); ?>
-    </div>
-  </div>
-
-  <div class="large-6 medium-6 columns">
-    <h2><span>Scorestream</span></h2>
-    <?php echo stripslashes( $a['home_scorestream'] ); ?>
-  </div>
-</section>
-
-
-<section class="row clearfix">
   <?php for($c = 1; $c < 4; $c++) : ?>
     <div class="large-4 medium-4 columns">
       <?php $r4c = get_category($a["home_row_4_column_$c"]); ?>
@@ -127,6 +101,31 @@ global $a;
       <?php endwhile; endif; wp_reset_postdata(); ?>
     </div>
   <?php endfor; ?>
+</section>
+
+<section class="row clearfix">
+  <div class="large-6 medium-6 columns">
+    <?php $r5c1c = get_category($a['home_row_5_column_1']); ?>
+    <h2>
+      <a href="<?php echo get_category_link($r5c1c->cat_ID); ?>" title="<?php echo $r5c1c->name; ?>">
+        <span><?php echo $r5c1c->name; ?></span>
+      </a>
+    </h2>
+    <div class="four-up">
+      <?php
+      $r5c1q = new WP_Query(array('showposts' => 4, 'cat' => $r5c1c->cat_ID));
+      if($r5c1q->have_posts()) : while($r5c1q->have_posts()) : $r5c1q->the_post();
+        Harbinger::template('slide-over',
+          array('image_size' => 'medium')
+        );
+      endwhile; endif; wp_reset_postdata(); ?>
+    </div>
+  </div>
+
+  <div class="large-6 medium-6 columns">
+    <h2><span>Scorestream</span></h2>
+    <?php echo stripslashes( $a['home_scorestream'] ); ?>
+  </div>
 </section>
 
 <div class="row clearfix">
