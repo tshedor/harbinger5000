@@ -14,7 +14,7 @@
         </h4>
         <div class="byline">By <?php harbinger_authors(); ?></div>
         <div class="meta">
-          <?php the_date('M j, Y'); ?>
+          <?php echo get_the_date('M j, Y'); ?>
         </div>
       </div>
     </div>

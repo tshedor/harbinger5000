@@ -765,8 +765,7 @@ a:focus {
     margin-bottom: 10px;
     line-height: 1.2; }
     .tease h4 a {
-      color: #231F20;
-      text-transform: capitalize; }
+      color: #231F20; }
       .tease h4 a:hover {
         color: var(--primary-color); }
 
@@ -981,7 +980,7 @@ aside {
   margin: 20px 0 10px; }
 
 .entry {
-  font-family: "Noto Serif", Georgia, serif;
+  font-family: Georgia, serif;
   font-weight: 400; }
   .entry ul {
     list-style: disc;

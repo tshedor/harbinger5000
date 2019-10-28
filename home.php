@@ -44,7 +44,7 @@ global $a;
     </div>
   </div>
   <div class="large-6 medium-6 columns">
-  <a href="https://issuu.com/smeharbinger"><h2><span>Video</span></h2></a>
+    <a href="https://smeharbinger.net/category/video/"><h2><span>Video</span></h2></a>
     <?php echo stripslashes( $a['home_latest_video'] ); ?>
   </div>
 </section>
