@@ -1,23 +1,23 @@
 'use strict';
 
 var HB = {
-  init: function(){
+  init: function () {
     this.nav.init();
     this.ui.init();
   },
 
   nav: {
-    init: function() {
+    init: function () {
       this._header();
     },
 
-    _header: function() {
-      jQuery('.js-search-trigger').click(function() {
+    _header: function () {
+      jQuery('.js-search-trigger').click(function () {
         var jQueryform = jQuery('#searchform');
         jQueryform.fadeToggle();
 
-        if(jQueryform.is(':visible')) {
-          jQueryform.find('input').focus();
+        if (jQueryform.is(':visible')) {
+          jQueryform.find('input[type="text"]').focus();
         }
       });
     }
@@ -25,18 +25,18 @@ var HB = {
   },
 
   ui: {
-    init: function() {
+    init: function () {
       this._slideUp();
       this._slider();
     },
 
-    _slideUp: function() {
-      jQuery('.js-slide-title').hover(function() {
+    _slideUp: function () {
+      jQuery('.js-slide-title').hover(function () {
         jQuery(this).toggleClass('active');
       });
     },
 
-    _slider: function() {
+    _slider: function () {
       jQuery('.bx-slider').bxSlider({
         minSlides: 8,
         maxSlides: 10,
@@ -52,6 +52,6 @@ var HB = {
 
 };
 
-jQuery(window).load(function() {
+jQuery(window).load(function () {
   HB.init();
 });

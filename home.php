@@ -90,7 +90,7 @@ global $a;
         );
       endwhile; endif; wp_reset_postdata(); ?>
       <?php
-      $r4q2 = new WP_Query(array('showposts' => 5, 'cat' => $r4c->cat_ID));
+      $r4q2 = new WP_Query(array('showposts' => 3, 'cat' => $r4c->cat_ID));
       if($r4q2->have_posts()) : while($r4q2->have_posts()) : $r4q2->the_post(); ?>
         <h5>
           <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
@@ -152,48 +152,29 @@ global $a;
   <?php endwhile; endif; wp_reset_postdata(); ?>
 </section>
 
-<section class="row clearfix">
-  <div class="large-6 medium-6 columns">
-    <?php $r7c1c = get_category($a['home_row_7_column_1']); ?>
-    <h2>
-      <a href="<?php echo get_category_link($r7c1c->cat_ID); ?>" title="<?php echo $r7c1c->name; ?>">
-        <span><?php echo $r7c1c->name; ?></span>
-      </a>
-    </h2>
-    <div class="large-first">
-      <?php
-      $r7c1q = new WP_Query(array('showposts' => 3, 'cat' => $r7c1c->cat_ID));
-      if($r7c1q->have_posts()) : while($r7c1q->have_posts()) : $r7c1q->the_post(); ?>
-        <h5>
-          <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-            <?php Traction::get_image('thumbnail', array('link_to_post' => false)); ?>
-            <?php the_title(); ?>
-          </a>
-        </h5>
-      <?php endwhile; endif; wp_reset_postdata(); ?>
-    </div>
-  </div>
 
-  <div class="large-6 medium-6 columns">
-    <?php $r7c2c = get_category($a['home_row_7_column_2']); ?>
+<div class="row clearfix">
+  <div class="large-12 columns">
+    <?php $r7c = get_category($a['home_row_7']); ?>
     <h2>
-      <a href="<?php echo get_category_link($r7c2c->cat_ID); ?>" title="<?php echo $r7c2c->name; ?>">
-        <span><?php echo $r7c2c->name; ?></span>
+      <a href="<?php echo get_category_link($r7c->cat_ID); ?>" title="<?php echo $r7c->name; ?>">
+        <span><?php echo $r7c->name; ?></span>
       </a>
     </h2>
-    <div class="large-first">
-      <?php
-      $r7c2q = new WP_Query(array('showposts' => 3, 'cat' => $r7c2c->cat_ID));
-      if($r7c2q->have_posts()) : while($r7c2q->have_posts()) : $r7c2q->the_post(); ?>
-        <h5>
-          <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-            <?php Traction::get_image('thumbnail', array('link_to_post' => false)); ?>
-            <?php the_title(); ?>
-          </a>
-        </h5>
-      <?php endwhile; endif; wp_reset_postdata(); ?>
-    </div>
   </div>
+</div>
+<section class="row clearfix">
+  <?php $r7q = new WP_Query(array('showposts' => 4, 'cat' => $r7c->cat_ID));
+    if($r7q->have_posts()) : while($r7q->have_posts()) : $r7q->the_post(); ?>
+    <div class="large-3 medium-6 columns">
+      <?php Traction::get_image('medium'); ?>
+      <h5>
+        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+          <?php the_title(); ?>
+        </a>
+      </h5>
+    </div>
+  <?php endwhile; endif; wp_reset_postdata(); ?>
 </section>
 
 <section class="row clearfix">

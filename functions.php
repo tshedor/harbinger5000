@@ -54,19 +54,11 @@ $breaking_opts = array(
     'type'  => 'clearfix'
   ),
   array(
-    'name'  => 'Masthead Graphic',
-    'desc'  => 'Nestled next to the logo',
-    'id'    => 'masthead_graphic',
+    'name'  => 'Logo',
+    'desc'  => 'The big masthead image',
+    'id'    => 'logo',
     'std'   => get_template_directory_uri() . '/img/masthead-graphic.png',
     'type'  => 'media',
-  ),
-
-  array(
-    'name'  => 'Masthead Link',
-    'desc'  => 'The URL for the masthead graphic',
-    'id'    => 'masthead_link',
-    'std'   => 'http://smeharbinger.net/category/live-broadcasts/',
-    'type'  => 'text',
   ),
   array(
     'type'  => 'endarray',
@@ -135,15 +127,9 @@ $homeopts = array(
     'type'  => 'categories',
   ),
   array(
-    'name'  => 'Row 7, Column 1',
-    'desc'  => 'The first column in the seventh row',
-    'id'    => 'home_row_7_column_1',
-    'type'  => 'categories',
-  ),
-  array(
-    'name'  => 'Row 7, Column 2',
-    'desc'  => 'The second column in the seventh row',
-    'id'    => 'home_row_7_column_2',
+    'name'  => 'Row 7',
+    'desc'  => 'The seventh row',
+    'id'    => 'home_row_7',
     'type'  => 'categories',
   ),
   array(
